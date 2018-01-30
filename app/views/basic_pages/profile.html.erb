@@ -1,23 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-<h1>BasicPages#profile</h1>
-
-
-  <div id="first" class="container-fluid">
-    <div class="row">
-      <div id="picture" class="col-sm-3">
-        <h1>bla</h1>
+<div id="first" class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="row">
+            <div id="profilePicture" class="col-xs-12">
+              <%= image_tag "profilePicture.jpg", class: "img-fluid img-circle", alt: "lool" %>
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn btn-default" type="submit">FreundIn hinzufügen</button>
+              <button class="btn btn-default" type="submit">Nachricht schreiben</button>
+            </div>
+          </div>
+        </div>
+        <div id="stats" class="col-xs-9">
+          <div class="row">
+            <div class="col-xs-6">Name</div>
+            <div id="nameStat" class="col-xs-6">Melinda Musterfrau</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">Geburtstag</div>
+            <div id="kmStat" class="col-xs-6">20 000</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">Länder betrampt</div>
+            <div id="countryStat" class="col-xs-6">Belgien, Deutschland, Estland</div>
+          </div>
+        </div>
       </div>
-      <div id="stats" class="col-sm-3">
-
-        <h1>blub</h1>
+      <div class="row"></div>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="row">
+            <div id="hhTourNavigation" class="col-xs-12">
+              <div class="row">
+                <div class="col-xs-12">
+                  b1
+                </div>
+                <div class="col-xs-12">
+                  b2
+                </div>
+                <div class="col-xs-12">
+                  b3
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-default" type="submit">
+                Tramptour hinzufügen</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-default" type="submit">
+                Beitrag hinzufügen</button>
+            </div>
+          </div>
+        </div>
+        <div id="hhTourPanel" class="col-xs-9">
+          <div class="row">
+            <div class="col-xs-8">
+              Tourtitel
+            </div>
+            <div class="btn-group" role="group">
+              <button class="btn btn-default" type="submit">bearbeiten</button>
+              <button class="btn btn-default" type="submit">löschen</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              Start
+            </div>
+            <div id="start" class="col-xs-3">
+              Köln
+            </div>
+            <div class="col-xs-3">
+              Ziel
+            </div>
+            <div id="destination" class="col-xs-3">
+              Frankfurt
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              Zeit
+            </div>
+            <div id="duration" class="col-xs-3">
+              4 h
+            </div>
+            <div class="col-xs-3">
+              Stops
+            </div>
+            <div id="amountStops" class="col-xs-3">
+              3
+            </div>
+          </div>
+          <div class="row">
+            <div id="map" class="col-xs-12">
+              MAP
+            </div>
+          </div>
+          <div class="row">
+            <div id="text" class="col-xs-8">
+              blablabla
+            </div>
+            <div id="picture" class="col-xs-4">
+              pic
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</body>
-</html>
+</div>
