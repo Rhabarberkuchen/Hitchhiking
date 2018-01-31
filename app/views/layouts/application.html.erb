@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Hitchhiking</title>
+    <meta content="width=device-width,initial-scale=1" name=viewport>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,8 +12,7 @@
   <body>
     <div class="container">
       <div class="row">
-
-        <div class="col-xs-2">
+        <div class="col-md-2">
           <div class="navbar navbar-inverse navbar-fixed-left">
             <ul>
               <li>
@@ -24,7 +24,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-xs-10">
+        <div class="col-md-10">
           <%= yield %>
         </div>
       </div>
