@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Hitchhiking</title>
-    <meta content="width=device-width,initial-scale=1" name=viewport>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,16 +13,23 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <div class="navbar navbar-inverse navbar-fixed-left">
-            <ul>
-              <li>
-                bla
-              </li>
-              <li>
-                blub
-              </li>
-            </ul>
-          </div>
+          <nav class="navbar navbar-light bg-light" role="navigation">
+            <div class="container-fluid">
+
+              <div class="navbar-brand">
+                Autostop-Bla
+              </div>
+
+              <ul class="nav nav-justified">
+                <li class="nav-item">
+                  <a class="nav-link">bla</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">blub</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
         <div class="col-md-10">
           <%= yield %>

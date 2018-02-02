@@ -50,6 +50,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #bootstrap
-gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
+gem 'bootstrap'

@@ -4,26 +4,34 @@
       <div class="col-md-3">
         <div class="row">
           <div id="profilePicture" class="col-md-12">
-            <%= image_tag "profilePicture.jpg", class: "img-responsive img-circle", alt: "lool" %>
+            <%= image_tag "profilePicture.jpg", class: "img-responsive rounded-circle", alt: "lool" %>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="btn-group" role="group">
-              <button class="btn btn-default" type="submit">FreundIn hinzufügen</button>
-              <button class="btn btn-default" type="submit">Nachricht schreiben</button>
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-plus"></span>
+                Freundin</button>
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-envelope"></span></button>
             </div>
           </div>
         </div>
       </div>
       <div id="stats" class="col-md-9">
         <div class="row">
-          <div class="col-md-6 col-xs-6">Name</div>
-          <div id="nameStat" class="col-md-6 col-xs-6">Melinda Musterfrau</div>
+          <div id="nameStat" class="col-md-6 col-xs-6">
+            <h1>Melinda Musterfrau</h1>
+          </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-xs-6">Geburtstag</div>
-          <div id="kmStat" class="col-md-6 col-xs-6">20 000</div>
+          <div class="col-md-6 col-xs-6">Alter</div>
+          <div id="age" class="col-md-6 col-xs-6">22</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-xs-6">Km getrampt</div>
+          <div id="kmstat" class="col-md-6 col-xs-6">20 000</div>
         </div>
         <div class="row">
           <div class="col-md-6 col-xs-6">Länder betrampt</div>
@@ -36,86 +44,95 @@
       <div class="col-md-3">
         <div class="row">
           <div id="hhTourNavigation" class="col-md-12">
-            <div class="row">
-              <div class="col-md-12">
-                b1
+            <nav class="navbar bg-light">
+              <div class="navbar-brand">
+                Touren
               </div>
-              <div class="col-md-12">
-                b2
+              <div class="row">
+                <div class="navbar-nav col-md-12">
+                  b1
+                </div>
               </div>
-              <div class="col-md-12">
-                b3
+              <div class="row">
+                <div class="navbar-nav col-md-12">
+                  b2
+                </div>
               </div>
-            </div>
-          </div>
+              <div class="row">
+                <div class="navbar-navcol-md-12">
+                  b3
+                </div>
+              </div>
+          </nav>
         </div>
-        <div class="row">
-          <div class="col-md-6 ">
-            <button class="btn btn-default" type="submit">
-              Tramptour hinzufügen</button>
-          </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <button class="btn btn-default" type="submit">
+            Tramptour hinzufügen</button>
         </div>
-        <div class="row">
-          <div class="col-md-6 ">
-            <button class="btn btn-default" type="submit">
-              Beitrag hinzufügen</button>
+        <div class="col-md-6 ">
+          <button class="btn btn-default" type="submit">
+            Beitrag hinzufügen</button>
+        </div>
+      </div>
+    </div>
+    <div id="hhTourPanel" class="col-md-9">
+      <div class="row">
+        <div class="col-md-8 col-xs-4">
+          Tourtitel
+        </div>
+        <div class="col-md-4 col-xs-8">
+          <div class="btn-group" role="group">
+            <button class="btn btn-default" type="submit">bearbeiten</button>
+            <button class="btn btn-default" type="submit">löschen</button>
           </div>
         </div>
       </div>
-      <div id="hhTourPanel" class="col-md-9">
-        <div class="row">
-          <div class="col-md-8 col-xs-4">
-            Tourtitel
-          </div>
-          <div class="col-md-4 col-xs-8">
-            <div class="btn-group" role="group">
-              <button class="btn btn-default" type="submit">bearbeiten</button>
-              <button class="btn btn-default" type="submit">löschen</button>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-md-3 col-xs-6">
+          Start
         </div>
-        <div class="row">
-          <div class="col-md-3 col-xs-6">
-            Start
-          </div>
-          <div id="start" class="col-md-3 col-xs-6">
-            Köln
-          </div>
-          <div class="col-md-3 col-xs-6">
-            Ziel
-          </div>
-          <div id="destination" class="col-md-3 col-xs-6">
-            Frankfurt
-          </div>
+        <div id="start" class="col-md-3 col-xs-6">
+          Köln
         </div>
-        <div class="row">
-          <div class="col-md-3 col-xs-6">
-            Zeit
-          </div>
-          <div id="duration" class="col-md-3 col-xs-6">
-            4 h
-          </div>
-          <div class="col-md-3 col-xs-6">
-            Stops
-          </div>
-          <div id="amountStops" class="col-md-3 col-xs-6">
-            3
-          </div>
+        <div class="col-md-3 col-xs-6">
+          Ziel
         </div>
-        <div class="row">
-          <div id="map" class="col-md-12">
-            MAP
-          </div>
+        <div id="destination" class="col-md-3 col-xs-6">
+          Frankfurt
         </div>
-        <div class="row">
-          <div id="text" class="col-md-8">
-            blablabla
-          </div>
-          <div id="picture" class="col-md-4">
-            pic
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-xs-6">
+          Zeit
+        </div>
+        <div id="duration" class="col-md-3 col-xs-6">
+          4 h
+        </div>
+        <div class="col-md-3 col-xs-6">
+          Stops
+        </div>
+        <div id="amountStops" class="col-md-3 col-xs-6">
+          3
+        </div>
+      </div>
+      <div class="row">
+        <div id="map" class="col-md-12">
+          MAP
+        </div>
+      </div>
+      <div class="row">
+        <div id="text" class="col-md-8">
+          blablabla
+        </div>
+        <div id="picture" class="col-md-4">
+          pic
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
