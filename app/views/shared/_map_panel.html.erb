@@ -1,0 +1,93 @@
+<div class="map_panel">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="row">
+        <div id="hhTourNavigation" class="col-sm-12">
+          <nav class="navbar navbar-light bg-light">
+            <div class="navbar-header ">
+              Touren
+            </div>
+            <ul class="navbar-nav">
+              <li class="list item">
+                <a class="nav-link">b1</a>
+              </li>
+              <li class="list item">
+                <a class="nav-link">b2</a>
+              </li>
+              <li class="list item">
+                <a class="nav-link">b3</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 ">
+          <button class="btn btn-default" type="submit">
+            <%=svg "plus"%>
+            Tramptour</button>
+        </div>
+        <div class="col-sm-6 ">
+          <button class="btn btn-default" type="submit">
+            <%=svg "plus"%>
+            Beitrag</button>
+        </div>
+      </div>
+    </div>
+    <div id="hhTourPanel" class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-8 col-4">
+          Tourtitel
+        </div>
+        <div class="col-sm-4 col-8">
+          <div class="btn-group" role="group">
+            <button class="btn btn-default" type="submit">bearbeiten</button>
+            <button class="btn btn-default" type="submit">löschen</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-6">
+          Start
+        </div>
+        <div id="start" class="col-sm-3 col-6">
+          Köln
+        </div>
+        <div class="col-sm-3 col-6">
+          Ziel
+        </div>
+        <div id="destination" class="col-sm-3 col-6">
+          Frankfurt
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-6">
+          Zeit
+        </div>
+        <div id="duration" class="col-sm-3 col-6">
+          4 h
+        </div>
+        <div class="col-sm-3 col-6">
+          Stops
+        </div>
+        <div id="amountStops" class="col-sm-3 col-6">
+          3
+        </div>
+      </div>
+      <div class="row">
+        <div id="map" class="col-sm-12">
+          <%= image_tag google_map(center: [ 49.7469,  6.6348].join(',')) %>
+        </div>
+      </div>
+      <div class="row">
+        <div id="text" class="col-sm-8">
+          blablabla
+        </div>
+        <div id="picture" class="col-sm-4">
+          pic
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
