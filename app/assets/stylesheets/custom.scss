@@ -1,27 +1,47 @@
-body {padding-top: 60px;}
+body {
+  padding-top: 60px;
+}
 
-section{
+section {
   overflow: auto;
 }
 
-.profilePicture{
+.profilePicture {}
 
-}
-
-.map_panel{
-
+.map_panel {
   border-radius: 25px;
   background: #c6ecd7;
 }
 
-.map{
-
+.map {
+  max-width: 100%;
+  overflow: hidden;
+  color: red;
+  width: inherit;
+  height: 400px;
 }
 
-.main-navigation{
+.main-navigation {
   border-radius: 25px;
   background: #8cd9af;
 }
+
 .rounded-profile {
   border-radius: 25px;
+}
+
+.personStats {
+  background-color: cornsilk;
+  border-radius: 15px;
+}
+
+.mapStats {
+  background-color: #ecf9f2;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.mapStatsItem {
+  font-weight: bold;
 }

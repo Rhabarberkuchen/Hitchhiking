@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  resources :users
   get 'basic_pages/profile'
 
   get 'basic_pages/home'
