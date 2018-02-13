@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="row">
-          <div id="profilePicture" class="col-sm-12">
-            <%= image_tag "profilePicture.jpg", class: "img-fluid rounded-profile", alt: "lool" %>
+          <div id="profilePicture" class="col-sm-12 pb-1">
+            <%= image_tag "profilePicture.jpg", class: "img-fluid rounded-profile", alt: "profilePicture" %>
           </div>
         </div>
         <div class="row">
@@ -17,18 +17,19 @@
             <h1>Melinda Musterfrau</h1>
           </div>
           <div class="col-4">
-            <div class="btn-group" role="group">
-              <button class="btn btn-default" type="submit">
+              <button class="btn btn-default float-right" type="submit">
                 <%= svg 'edit-2' %>
               </button>
-            </div>
           </div>
         </div>
-        <div class="personStats">
-
+        <div class="personStats pb-3">
           <div class="row">
             <div class="col-sm-4 col-6">Alter</div>
             <div id="age" class="col-sm-8 col-6">22</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-6">Base</div>
+            <div id="baseStat" class="col-sm-8 col-6">Trier</div>
           </div>
           <div class="row">
             <div class="col-sm-4 col-6">Km getrampt</div>
