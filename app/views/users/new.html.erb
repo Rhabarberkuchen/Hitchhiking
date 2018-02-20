@@ -1,5 +1,45 @@
-<h1>New User</h1>
+<h1>Registrierung</h1>
 
-<%= render 'form', user: @user %>
+<div class="row">
+  <div class="col-12">
+    <%= form_for @user, url: {action: "create"} do |u| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-4">
+          <%= u.label :name %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= u.label :birthday %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :birthday, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= u.label :base %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :base, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= u.label :countries %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :countries, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <%= u.submit "Registrieren", class: "btn btn-default"%>
+  <% end %>
+</div>
+</div>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class: "badge" %>

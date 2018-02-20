@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="actions">
+    <%= form_tag action: "create" do %>
+    <p><label for="user_name"> Name</label>
+    <%= text_field 'users', 'name' %> </p>
     <%= form.submit %>
+    <% end %>
   </div>
 <% end %>
