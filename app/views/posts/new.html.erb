@@ -1,13 +1,13 @@
 <div class="row ">
-  <div class="col-12 col-md-9 panel">
+  <div class="col-12 panel mx-auto">
     <div class="row">
-      <div class="col-12 mt-3 pb-4 ">
+      <div class="col-12 pt-3 pb-4 ">
         <h2>
           Post erstellen</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-1 ml-3">
+      <div class="col-1 pl-3">
         <label>Titel</label>
       </div>
       <div class="col-10 ">
@@ -20,11 +20,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4 mx-auto mb-3">
+      <div class="col-12 pb-4">
+        <div class="col-12" >
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="uploadPicture">
+            <label class="custom-file-label" for="uploadPicture">Bild auswählen...</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 mx-auto pb-3">
         <div class="btn-group" role="group">
           <button class="btn btn-info" type="submit">
             Speichern</button>
-          <%= link_to "Abbrechen", basic_pages_profile_path, class: "btn btn-info", role:"button" %>
+          <%= link_to "Abbrechen", users_show_path, class: "btn btn-info", role:"button" %>
         </div>
       </div>
     </div>

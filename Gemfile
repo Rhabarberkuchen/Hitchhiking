@@ -53,3 +53,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'bootstrap'
+
+gem 'bcrypt-ruby'
+gem 'bcrypt', platforms: :ruby

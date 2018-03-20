@@ -1,0 +1,2 @@
+class HitchhikingPostsController < PostsController
+end

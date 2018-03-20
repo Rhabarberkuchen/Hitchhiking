@@ -1,23 +1,20 @@
-<nav class="navbar  main-navigation navbar-light">
+<nav class="navbar main-navigation navbar-light">
   <div class="container">
-    <div class="navbar-brand ">
-      Autostop
+    <div class="navbar-header ">
+      <h5>Autostop</h5>
     </div>
-    <ul class="nav flex-md-column">
+    <ul class="nav ">
       <li class="nav-item">
-        <%= link_to "Profil", basic_pages_profile_path, class: "nav-link text-left" %>
+        <%= link_to svg('user'), users_show_path, class: "nav-link text-left text-dark" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-left">Trampen</a>
+        <%= link_to svg('thumbs-up'), "", class: "nav-link text-left text-dark" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-left">Nachrichten</a>
+        <%= link_to svg('message-square'), "", class: "nav-link text-left text-dark"%>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-left">Forum</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-left">Freunde</a>
+    <%= link_to svg( 'users'),"", class: "nav-link text-left text-dark" %>
       </li>
     </ul>
   </div>

@@ -1,0 +1,2 @@
+class HitchhikingPost < ApplicationRecord
+end

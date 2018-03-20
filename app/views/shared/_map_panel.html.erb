@@ -1,49 +1,27 @@
-<div class="panel py-2">
+<div class="panel pb-2">
   <div class="row ">
     <div class="col-sm-3">
+
       <div class="row">
-        <div class="col-12 col-sm-4">
-          <div class="bootstrap-vertical-nav">
+        <%= render "shared/map_navigation" %>
+        <div class="col-2">
 
-            <button class="btn btn-primary hidden-md-up" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              <span class="">Menu</span>
-            </button>
-
-            <div class="collapse" id="collapseExample">
-              <ul class="nav flex-column" id="exCollapsingNavbar3">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-              </ul>
-            </div>
-
+        </div>
+        <div class=" col-4 col-sm-12 pb-2">
+          <div class="btn-group d-flex " role="group">
+            <%= link_to "+ Tramptour", "", class: "btn btn-info w-100", role: "button" %>
+            <%= link_to "+ Post", new_post_path, class: "btn btn-info w-100", role: "button" %>
           </div>
         </div>
-        <div class=" col-4 col-sm-12 ">
-          <button class="btn btn-block btn-default" type="submit">
-            +
-            Tramptour</button>
-        </div>
-        <div class="col-4  col-sm-12 ">
-          <%= link_to "+ Post", new_post_path, class: "btn btn-block btn-info ", role: "button" %>
-        </div>
       </div>
+
     </div>
     <div id="hhTourPanel" class="col-sm-9">
       <div class="row">
-        <div class="col-sm-8 col-6">
-          <h4>Tourtitel</h4>
+        <div class="col-sm-8 col-10 pt-2">
+          <h4>Meine erste Tour</h4>
         </div>
-        <div class="col-sm-4 col-6">
+        <div class="col-sm-4 col-2">
           <div class="btn-group float-right" role="group">
             <button class="btn btn-default" type="submit"><%= svg "edit-2" %></button>
             <button class="btn btn-default" type="submit"><%= svg "delete" %></button>

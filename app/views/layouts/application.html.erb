@@ -12,13 +12,17 @@
   <body>
     <div class="container pt-3">
       <div class="row">
-        <div class="col-lg-2 pb-2">
+        <div class="col-12 pb-3">
           <%= render "shared/main_navigation" %>
         </div>
-        <div class="col-lg-10">
-          <%= yield  %>
+      </div>
+      <div class="row pb-4">
+        <div class="col-12">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>

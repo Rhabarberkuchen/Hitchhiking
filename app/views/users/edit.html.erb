@@ -1,6 +1,118 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="row">
+  <div class="col-12 col-md-10 mx-auto">
+    <div class="row">
+      <div class="col-12">
+        <h2>Profil bearbeiten</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 pb-3">
+        <%= image_tag "profilePicture.jpg", class: "img-fluid rounded-profile", alt: "profilePicture" %>
+      </div>
+      <div class="col-12 col-sm-6 col-md-9">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <label>Profilbild</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" >
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="uploadProfilePicture">
+              <label class="custom-file-label" for="uploadProfilePicture">Bild auswählen...</label>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-md-3">
+      <label for="nameForm">
+        Name</label>
+    </div>
+    <div class="col-12 col-md-9">
+      <input class="form-control" id="nameForm" value="Melinda Musterfrau">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-md-3">
+      <label for="birthdayForm">
+        Geburtstag</label>
+    </div>
+    <div class="col-12 col-md-9">
+      <input type="date" class="form-control" id="birthdayForm" value="02.02.1993">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-md-3">
+      <label for="baseForm">
+        Base</label>
+    </div>
+    <div class="col-12 col-md-9">
+      <input class="form-control" id="baseForm" value="Trier">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-md-3">
+      <label for="countriesHitchhikedForm">
+        Länder betrampt</label>
+    </div>
+    <div class="col-12 col-md-9">
+      <textfield id="countriesHitchhikedForm" class="form-control">Belgien, Deutschland</textfield>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 pt-4 pb-3">
+      <h4>
+        Login-Daten</h4>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-12 col-md-3">
+      <label for="mailAdressForm">
+        Email-Adresse</label>
+    </div>
+    <div class="col-12 col-md-9">
+      <input id="mailAdressForm" type="email" class="form-control"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row pb-1">
+      <div class="col-12 col-md-3">
+        <label for="oldPasswordForm">
+          Altes Passwort</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input type="password" id="oldPasswordForm" class="form-control" placeholder="Altes Passwort eingeben">
+      </div>
+    </div>
+    <div class=" row pb-1">
+      <div class="col-12 col-md-3">
+        <label for="newPasswordForm">
+          Neues Passwort</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input type="password" id="newPasswordForm" class="form-control" placeholder="Neues Passwort eintippen">
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-12 col-md-3">
+        <label for="newPasswordRepeatForm">
+          Neues Passwort wiederholen</label>
+      </div>
+      <div class="col-12 col-md-9">
+        <input type="password" id="newPasswordRepeatForm" class="form-control" placeholder="Neues Passwort wiederholen">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="btn-group">
+        <button class="btn btn-info" type="submit">Speichern
+        </button>
+        <%= link_to "Abbrechen", users_show_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

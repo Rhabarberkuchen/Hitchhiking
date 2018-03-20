@@ -1,4 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="row">
+          <div id="profilePicture" class="col-sm-12 pb-1">
+            <%= image_tag "profilePicture.jpg", class: "img-fluid rounded-profile", alt: "profilePicture" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12"></div>
+        </div>
+      </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <div id="stats" class="col-sm-9 pb-3">
+        <div class="row">
+          <div id="nameStat" class="col-sm-8 col-8">
+            <h1>Melinda Musterfrau</h1>
+          </div>
+          <div class="col-4">
+            <%= link_to svg('edit-2'), edit_user_path, class: "btn btn-info float-right" %>
+          </div>
+        </div>
+        <div class="personStats pb-3">
+          <div class="row">
+            <div class="col-sm-4 col-6">Alter</div>
+            <div id="age" class="col-sm-8 col-6">22</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-6">Base</div>
+            <div id="baseStat" class="col-sm-8 col-6">Trier</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-6">Km getrampt</div>
+            <div id="kmstat" class="col-sm-8 col-6">20 000</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-6">Länder betrampt</div>
+            <div id="countryStat" class="col-sm-8 col-6">Belgien, Deutschland, Estland</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <%= render 'shared/map_panel' %>
+  </div>
+</div>

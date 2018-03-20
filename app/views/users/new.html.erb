@@ -6,7 +6,25 @@
     <div class="form-group">
       <div class="row">
         <div class="col-4">
-          <%= u.label :name %>
+          <%= u.label :email, "Email-Adresse" %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :email, class: "form-control" %>
+        </div>
+        <div class="col-4">
+          <%= u.label :password, "Passwort" %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :password, class: "form-control" %>
+        </div>
+        <div class="col-4">
+          <%= u.label :password_confirmation, "Passwort wiederholen" %>
+        </div>
+        <div class="col-8 py-1">
+          <%= u.text_field :password_confirmation, class: "form-control" %>
+        </div>
+        <div class="col-4">
+          <%= u.label :name, "Name" %>
         </div>
         <div class="col-8 py-1">
           <%= u.text_field :name, class: "form-control" %>
@@ -14,7 +32,7 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <%= u.label :birthday %>
+          <%= u.label :birthday, "Geburtsdatum" %>
         </div>
         <div class="col-8 py-1">
           <%= u.text_field :birthday, class: "form-control" %>
@@ -22,7 +40,7 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <%= u.label :base %>
+          <%= u.label :base, "Basis" %>
         </div>
         <div class="col-8 py-1">
           <%= u.text_field :base, class: "form-control" %>
@@ -30,7 +48,7 @@
       </div>
       <div class="row">
         <div class="col-4">
-          <%= u.label :countries %>
+          <%= u.label :countries, "Länder betrampt" %>
         </div>
         <div class="col-8 py-1">
           <%= u.text_field :countries, class: "form-control" %>

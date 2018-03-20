@@ -10,22 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219170048) do
+ActiveRecord::Schema.define(version: 20180319112929) do
 
-  create_table "posts", force: :cascade do |t|
-    t.date "date"
+  create_table "hitchhiking_posts", force: :cascade do |t|
+    t.string "start"
+    t.string "destination"
+    t.time "time"
+    t.integer "stops"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
     t.text "text"
+    t.string "sender"
+    t.string "receiver"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.date "birthday"
-    t.string "base"
-    t.string "countries"
-  end
+# Could not dump table "posts" because of following StandardError
+#   Unknown type 'email' for column 'email'
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'email' for column 'email'
 
 end

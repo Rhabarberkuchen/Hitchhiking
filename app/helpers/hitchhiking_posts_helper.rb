@@ -1,0 +1,2 @@
+module HitchhikingPostsHelper
+end
