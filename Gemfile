@@ -54,5 +54,5 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'bootstrap'
 
-gem 'bcrypt-ruby'
-gem 'bcrypt', platforms: :ruby
+gem 'devise'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'

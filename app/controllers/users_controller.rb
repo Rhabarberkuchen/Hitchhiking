@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    #@users = User.all
+    @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    # @user = User.find(params[:id])
+    #@user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -27,16 +27,16 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to '/users/show'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to '/users/show'
       #  format.html { redirect_to @user, notice: 'User was successfully created.' }
       #  format.json { render :show, status: :created, location: @user }
-      else
-        render "new"
-        #format.html { render :new }
-        #format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    else
+      render "new"
+      #format.html { render :new }
+      #format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
 
   end
 
@@ -65,13 +65,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      #@user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    #@user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :role, :user_name)
+  end
 end
