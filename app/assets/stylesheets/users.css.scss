@@ -1,0 +1,27 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rounded-profile {
+  border-radius: 15px;
+}
+
+.personStats {
+  background-color: cornsilk;
+  border-radius: 15px;
+  border-width: thick;
+  border-color: cornsilk;
+  border-style: solid;
+}
+
+.mapStats {
+  background-color: #ecf9f2;
+  border-radius: 10px;
+  border-width: thick;
+  border-style: solid;
+  border-color: #ecf9f2;
+}
+
+.mapStatsItem {
+  font-weight: bold;
+}

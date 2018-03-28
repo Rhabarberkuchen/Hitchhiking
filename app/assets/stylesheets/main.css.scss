@@ -1,0 +1,39 @@
+
+//map-nav
+@media (min-width: 768px) {
+  .bootstrap-vertical-nav .collapse {
+    background-color: #fbf7f4;
+    display: block;
+  }
+}
+
+
+
+body {
+  background-color:  $bgcolor;
+}
+
+section {
+  overflow: auto;
+}
+
+.panel {
+  border-radius: 15px;
+  //background: #d9f2e4;
+    background: $accent-color-first;
+}
+
+.map {
+  max-width: 100%;
+  overflow: hidden;
+  color: red;
+  width: inherit;
+  height: 400px;
+
+}
+
+.main-navigation {
+  border-radius: 15px;
+  //background: #8cd9af;
+  background: $main-color;
+}
