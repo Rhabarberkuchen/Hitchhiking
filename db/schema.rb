@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321125608) do
+ActiveRecord::Schema.define(version: 20180704111044) do
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
 
   create_table "hitchhiking_posts", force: :cascade do |t|
     t.string "start"
@@ -48,12 +56,15 @@ ActiveRecord::Schema.define(version: 20180321125608) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "name"
-    t.string "base"
-    t.date "birthday"
-    t.string "countries"
+    t.string "name", default: "Melinda Musterfrau"
+    t.string "base", default: "Utopia"
+    t.date "birthday", default: "1990-01-01"
+    t.string "countries", default: "Utopia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
+    t.integer "km", default: 0
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

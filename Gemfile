@@ -54,5 +54,9 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'bootstrap'
 
+#authentication
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
+#file upload
+gem 'carrierwave'

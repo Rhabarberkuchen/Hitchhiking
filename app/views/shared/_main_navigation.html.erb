@@ -1,11 +1,12 @@
+<% if user_signed_in? %>
 <nav class="navbar main-navigation navbar-light">
-  <div class="container">
+  <div class="container h-100">
     <div class="navbar-header ">
       <h5>Autostop</h5>
     </div>
     <ul class="nav ">
       <li class="nav-item">
-        <%= link_to svg('user'), users_show_path, class: "nav-link text-left text-dark" %>
+        <%= link_to svg('user'), user_path(@user.id), class: "nav-link text-left text-dark" %>
       </li>
       <li class="nav-item">
         <%= link_to svg('thumbs-up'), "", class: "nav-link text-left text-dark" %>
@@ -16,6 +17,20 @@
       <li class="nav-item">
     <%= link_to svg( 'users'),"", class: "nav-link text-left text-dark" %>
       </li>
+      <li class="nav-item">
+        <%= link_to svg('x-circle'), destroy_user_session_path, method: :delete, class: "nav-link text-left text-dark" %>
+      </li>
     </ul>
   </div>
 </nav>
+
+<% else %>
+<div class="container h-100">
+  <div class="row">
+    <div class="col-6 col-sm-4 col-lg-2 mx-auto main-navigation mt-4">
+        <h5 class="text-center mt-2"> AUTOSTOP</h5>
+    </div>
+  </div>
+
+</div>
+<% end %>
