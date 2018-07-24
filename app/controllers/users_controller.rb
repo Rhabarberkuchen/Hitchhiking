@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  helper FriendsAndEditButtonHelper
 
 
   # GET /users
@@ -66,6 +67,19 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_friend
+    user = User.find(params[:user_id])
+    friend = User.find(params[:friend_id])
+    user.friends << friend
+  end
+
+  def remove_friend
+    user = User.find(params[:user_id])
+    friend = User.find(params[:friend_id])
+    user.friends.destroy(friend)
+  end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.

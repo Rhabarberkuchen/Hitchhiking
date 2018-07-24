@@ -6,7 +6,7 @@ class Friendship < ActiveRecord::Base
   after_destroy :destroy_inverses, if: :has_inverse?
 
   def create_inverse
-    self.class.create(user_id: self.friend.id, friend_id: self.user.id)
+    friend.friendships.create(user_id: self.friend.id, friend_id: self.user.id)
   end
 
   def destroy_inverses
@@ -18,10 +18,11 @@ class Friendship < ActiveRecord::Base
   end
   def inverse_friendship
     {user_id: self.friend_id, friend_id: self.user_id}
-    #code
   end
 
   def inverses
     self.class.where(inverse_friendship)
   end
+
+
 end

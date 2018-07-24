@@ -6,15 +6,18 @@ Rails.application.routes.draw do
     get '/sign_up', to: 'users/registrations#new'
     get '/sign_in', to: 'users/sessions#new'
     get '/users/:id', to: 'users#show'
+    post '/users/add_friend/', to: 'users#add_friend'
+    post '/users/remove_friend/', to: 'users#remove_friend'
   end
 
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
 
-  get 'messages/new'
+  get 'users/:id/friendships', to: 'friendships#show_friendships_of_user', as: 'friendship'
 
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update],:has_many => :friends
   resources :posts
+  resources :friendships
 
 
 end

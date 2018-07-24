@@ -1,4 +1,9 @@
 class FriendshipsController < ApplicationController
-  def new
+    helper FriendsAndEditButtonHelper
+  def index
+    user = current_user
+    @friends = user.friends
   end
+
+
 end

@@ -6,7 +6,7 @@
     </div>
     <ul class="nav ">
       <li class="nav-item">
-        <%= link_to svg('user'), user_path(@user.id), class: "nav-link text-left text-dark" %>
+        <%= link_to svg('user'), user_path(current_user.id), class: "nav-link text-left text-dark" %>
       </li>
       <li class="nav-item">
         <%= link_to svg('thumbs-up'), "", class: "nav-link text-left text-dark" %>
@@ -15,7 +15,7 @@
         <%= link_to svg('message-square'), "", class: "nav-link text-left text-dark"%>
       </li>
       <li class="nav-item">
-    <%= link_to svg( 'users'),"", class: "nav-link text-left text-dark" %>
+    <%= link_to svg( 'users'), friendships_path, class: "nav-link text-left text-dark" %>
       </li>
       <li class="nav-item">
         <%= link_to svg('x-circle'), destroy_user_session_path, method: :delete, class: "nav-link text-left text-dark" %>

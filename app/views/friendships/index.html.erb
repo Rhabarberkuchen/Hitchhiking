@@ -1,0 +1,20 @@
+<div class="panel col-12 col-sm-8">
+  <h2 class="title text-center"> Friends</h2>
+  <% @friends.each do |user| %>
+
+    <div class="row">
+      <div class="col-3 col-sm-2 pb-2">
+        <%= image_tag(user.avatar, :alt => "Profile picture", class: "img-fluid rounded-profile" )%>
+      </div>
+      <div class=" col-6 col-sm-8">
+        <h3><%= link_to user.name , user_path(user.id) %></h3>
+      </div>
+
+      <div class=" col-3 col-sm-2">
+        <h3><%= friends_and_edit_button(current_user, user) %></h3>
+      </div>
+
+    </div>
+
+  <% end %>
+</div>

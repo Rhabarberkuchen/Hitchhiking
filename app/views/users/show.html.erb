@@ -18,10 +18,7 @@
             <h1><%= @user.name %></h1>
           </div>
           <div class="col-4">
-          <%= if @user.id == current_user.id;
-             link_to svg('edit-2'), edit_user_path, class: "btn float-right"
-           else
-             link_to svg('user-plus'), edit_user_path, class: "btn float-right" end %>
+          <%= friends_and_edit_button(current_user, @user) %>
           </div>
         </div>
         <div class="panel pb-3">
