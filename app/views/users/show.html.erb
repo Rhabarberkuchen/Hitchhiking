@@ -1,3 +1,6 @@
+<%= if current_user.friend_requests.first != nil
+render 'shared/answer_friend_request'
+end %>
 <div class="row">
   <div class="col-sm-12">
     <div class="row">

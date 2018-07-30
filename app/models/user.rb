@@ -16,6 +16,16 @@ class User < ApplicationRecord
 
   has_many :friendships
   has_many :friends, through: :friendships, dependent: :destroy
+  has_many :friend_requests, dependent: :destroy
+
+  def was_friendship_requested_by?(other_user)
+    requested = false
+
+    if self.id != other_user.id && self.friend_requests.exists?(user_id: self.id, requester_id: other_user.id)
+      requested = true
+    end
+    return requested
+  end
 
 
   def is_friends_with?(other_user)
@@ -25,8 +35,6 @@ class User < ApplicationRecord
     end
     return is_friends
   end
-
-
 
 
 end

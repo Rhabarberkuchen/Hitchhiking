@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180704111044) do
+ActiveRecord::Schema.define(version: 20180725092513) do
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "requester_id"
+    t.integer "user_id"
+    t.index ["requester_id"], name: "index_friend_requests_on_requester_id"
+    t.index ["user_id", "requester_id"], name: "index_friend_requests_on_user_id_and_requester_id", unique: true
+    t.index ["user_id"], name: "index_friend_requests_on_user_id"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id"

@@ -80,6 +80,29 @@ class UsersController < ApplicationController
     user.friends.destroy(friend)
   end
 
+  def add_friend_request
+    requested = User.find(params[:user_id])
+    requester =  User.find(params[:requester_id])
+    fr = FriendRequest.create(user_id: requested.id, requester_id: requester.id)
+    requested.friend_requests << fr
+  end
+
+  def accept_friend_request
+    request = FriendRequest.find(params[:request_id])
+
+    requested = User.find(request.user_id)
+    requester = User.find(request.requester_id)
+    requested.friends << requester
+    requested.friend_requests.destroy(request)
+
+  end
+
+  def deny_friend_request
+    request = FriendRequest.find(params[:request_id])
+    requested = User.find(request.user_id)
+    requested.friend_requests.destroy(request)
+  end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.

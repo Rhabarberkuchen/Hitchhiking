@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'users#show'
     post '/users/add_friend/', to: 'users#add_friend'
     post '/users/remove_friend/', to: 'users#remove_friend'
+    post '/users/add_friend_request', to: 'users#add_friend_request'
+    post '/users/accept_friend_request', to: 'users#accept_friend_request'
+      post '/users/deny_friend_request', to: 'users#deny_friend_request'
   end
 
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
@@ -18,6 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update],:has_many => :friends
   resources :posts
   resources :friendships
+  resources :friend_requests
 
 
 end
