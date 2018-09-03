@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_scope :user do
     root 'users/sessions#new'
@@ -10,16 +11,20 @@ Rails.application.routes.draw do
     post '/users/remove_friend/', to: 'users#remove_friend'
     post '/users/add_friend_request', to: 'users#add_friend_request'
     post '/users/accept_friend_request', to: 'users#accept_friend_request'
-      post '/users/deny_friend_request', to: 'users#deny_friend_request'
+    post '/users/deny_friend_request', to: 'users#deny_friend_request'
   end
+
 
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
 
   get 'users/:id/friendships', to: 'friendships#show_friendships_of_user', as: 'friendship'
 
 
-  resources :users, only: [:index, :show, :edit, :update],:has_many => :friends
-  resources :posts
+  resources :users, only: [:index, :show, :edit, :update] do
+    resources :simple_posts
+        resources :hitchhiking_posts
+  end
+
   resources :friendships
   resources :friend_requests
 

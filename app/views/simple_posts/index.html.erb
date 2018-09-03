@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Simple Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Text</th>
+      <th>Pictures</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @simple_posts.each do |simple_post| %>
+      <tr>
+        <td><%= simple_post.user_id %></td>
+        <td><%= simple_post.text %></td>
+        <td><%= simple_post.pictures %></td>
+        <td><%= simple_post.title %></td>
+        <td><%= link_to 'Show', simple_post %></td>
+        <td><%= link_to 'Edit', edit_simple_post_path(simple_post) %></td>
+        <td><%= link_to 'Destroy', simple_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Simple Post', new_simple_post_path %>

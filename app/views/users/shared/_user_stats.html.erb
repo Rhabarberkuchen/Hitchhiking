@@ -1,0 +1,29 @@
+<div id="stats">
+  <div class="row">
+    <div id="nameStat" class="col-sm-8 col-8">
+      <h1><%= @user.name %></h1>
+    </div>
+    <div class="col-4">
+    <%= friends_and_edit_button(current_user, @user) %>
+    </div>
+  </div>
+  <div class="panel pb-3">
+    <div class="row">
+      <div class="col-sm-4 col-6">Age</div>
+      <div id="age" class="col-sm-8 col-6">
+        <%= age(@user.birthday) %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-6">Base</div>
+      <div id="baseStat" class="col-sm-8 col-6"><%= @user.base %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-6">Kilometers hitchhiked</div>
+      <div id="kmstat" class="col-sm-8 col-6"><%= @user.km %></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-6">Countries hitchhiked</div>
+      <div id="countryStat" class="col-sm-8 col-6"><%= @user.countries %></div>
+    </div>
+  </div>
+</div>

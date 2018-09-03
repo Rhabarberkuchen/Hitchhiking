@@ -58,5 +58,8 @@ gem 'bootstrap'
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
+#nested scaffold (for routes)
+gem 'nested_scaffold'
+
 #file upload
 gem 'carrierwave'

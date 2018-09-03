@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  helper FriendsAndEditButtonHelper
+  helper ButtonHelper
 
 
   # GET /users
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def show
     #@user = current_user
     @user = User.find(params[:id])
+    @simple_post = @user.simple_posts.last
   end
 
   # GET /users/new
@@ -112,6 +113,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :role, :user_name)
+    params.require(:user).permit(:name, :user_name)
   end
 end

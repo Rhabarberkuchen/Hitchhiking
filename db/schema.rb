@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180725092513) do
+ActiveRecord::Schema.define(version: 20180823114617) do
 
   create_table "friend_requests", force: :cascade do |t|
     t.integer "requester_id"
@@ -28,29 +28,15 @@ ActiveRecord::Schema.define(version: 20180725092513) do
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
-  create_table "hitchhiking_posts", force: :cascade do |t|
-    t.string "start"
-    t.string "destination"
-    t.time "time"
-    t.integer "stops"
+  create_table "simple_posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.string "text"
+    t.string "pictures"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.text "text"
-    t.string "sender"
-    t.string "receiver"
-    t.date "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.date "date"
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_simple_posts_on_user_id_and_created_at", unique: true
+    t.index ["user_id"], name: "index_simple_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
