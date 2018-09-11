@@ -1,25 +1,23 @@
 <div class="row">
-  <div class="col-4 col-sm-12">
-
-    <div class="bootstrap-vertical-nav">
-      <button class="btn btn-info btn-block hidden-md-up" type="button" data-toggle="collapse" data-target="#collapseExample" aria-controls="collapseExample">
-        Posts
+  <div class="col-12">
+    <div class="navbar" >
+      <button class="btn w-100 navbar-toggler" id="postnavbutton" type="button" data-toggle="collapse" data-target="#postnav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Posts' navigation">
+       <span class="navbar-toggler-icon" id="custom-toggler-icon" ></span>Posts
       </button>
-
-      <div class="collapse">
-        <ul class="nav flex-column">
-          <% @user.simple_posts.reverse_each do |post| %>
+      <div class="collapse navbar-collapse" id="postnav">
+        <ul class="navbar-nav">
+          <% user.simple_posts.reverse_each do |post| %>
             <li class="nav-item">
-              <%= link_to post.title, user_simple_post_path(@user, post), remote: true, class:"nav-link text-dark" %>
+              <div class="<%= 'post-nav-selected' if simple_post.id == post.id %>">
+              <%= link_to post.title, user_simple_post_path(user, post), remote: true, class:"post-nav-hover nav-link text-dark pl-2" %>
+            </div>
             </li>
           <% end %>
-        </ul>
-      </div>
+        </div>
+      </ul>
+      <% if user.id == current_user.id %>
+        <%= link_to svg('plus'), new_user_simple_post_path(current_user), class: "btn w-100 ", role: "button" %>
+      <% end %>
     </div>
-  </div>
-  <div class=" col-4 col-sm-12">
-    <% if @user.id == current_user.id %>
-      <%= link_to "+ New Post", new_user_simple_post_path(current_user), class: "btn btn-info w-100", role: "button" %>
-    <% end %>
   </div>
 </div>

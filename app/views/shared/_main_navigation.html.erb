@@ -1,36 +1,41 @@
 <% if user_signed_in? %>
-<nav class="navbar main-navigation navbar-light">
-  <div class="container h-100">
-    <div class="navbar-header ">
-      <h5>Autostop</h5>
+  <nav class="navbar main-navigation navbar-light fixed-top">
+    <div class="container h-100">
+      <div class="d-none d-sm-block">
+        <div class="navbar-header ">
+          <h5>AutoStop</h5>
+        </div>
+      </div>
+      <div class="d-block d-sm-none">
+        <div class="navbar-header ">
+          <h5>AS</h5>
+        </div>
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <%= link_to svg('user'), user_path(current_user.id), class: "main-navigation-button nav-link text-left text-dark" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to svg('message-square'), "", class: "main-navigation-button nav-link text-left text-dark"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to svg( 'users'), friendships_path, class: "main-navigation-button nav-link text-left text-dark" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to svg('x-circle'), destroy_user_session_path, method: :delete, class: "main-navigation-button nav-link text-left text-dark" %>
+        </li>
+      </ul>
     </div>
-    <ul class="nav ">
-      <li class="nav-item">
-        <%= link_to svg('user'), user_path(current_user.id), class: "nav-link text-left text-dark" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to svg('thumbs-up'), "", class: "nav-link text-left text-dark" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to svg('message-square'), "", class: "nav-link text-left text-dark"%>
-      </li>
-      <li class="nav-item">
-    <%= link_to svg( 'users'), friendships_path, class: "nav-link text-left text-dark" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to svg('x-circle'), destroy_user_session_path, method: :delete, class: "nav-link text-left text-dark" %>
-      </li>
-    </ul>
-  </div>
-</nav>
+  </nav>
 
 <% else %>
-<div class="container h-100">
-  <div class="row">
-    <div class="col-6 col-sm-4 col-lg-2 mx-auto main-navigation mt-4">
-        <h5 class="text-center mt-2"> AUTOSTOP</h5>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-sm-4 col-lg-2 mx-auto main-navigation-sm my-2 py-2">
+        <h5 class="text-center ">
+          AutoStop</h5>
+      </div>
     </div>
-  </div>
 
-</div>
+  </div>
 <% end %>

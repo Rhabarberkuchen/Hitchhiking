@@ -1,61 +1,107 @@
-
-//map-nav
-@media (min-width: 768px) {
-  .bootstrap-vertical-nav .collapse {
-    background-color: #fbf7f4;
-    display: block;
-  }
+::selection {
+  background: $main-nav-button-hover-color;
+  /* text markieren farbe */
 }
 
 body {
-    background-color:  $bgcolor;
+  padding-top: 50px;
+  background-color: $bgcolor;
+  font-family: 'Exo 2', sans-serif;
 }
-
-
-.panel {
-  border-radius: 15px;
-  border-color: $accent-color-first;
-  border-width: thick;
+.error-panel{
+  background-color: red;
+  border-color: darken(red, 1);
   border-style: solid;
-    background: $accent-color-first;
+  border-width: thick;
+}
+.panel {
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  border-color: $main-color;
+  border-width: thin;
+  border-style: solid;
+  background-color: $accent-color-first;
 }
 
-.map {
-  max-width: 100%;
-  overflow: hidden;
-  color: red;
-  width: inherit;
-  height: 400px;
-
+.container-fluid {
+  height: 100vh;
 }
 
 .main-navigation {
-  border-radius: 15px;
-  background: $main-color;
+  background-color: $main-color;
+}
+
+.main-navigation-sm {
+  background-color: $main-color;
+  border-color: $main-nav-button-hover-color;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 0.3em;
 }
 
 .btn {
-background-color: $button-color;
-border-color: $button-color;
-color: #fff;
-
+  background-color: $button-color;
+  border-color: $button-border-color;
+  border-width: 0.1rem;
+  color: $button-text-color;
 }
-.btn:hover{
-  background-color: #138496;
-  color: #fff;
-  border-color: #138496;
+
+.btn:hover {
+  border-color: $button-border-color;
+  border-width: medium;
+  background-color: $button-color;
+}
+
+.main-navigation-button:hover {
+  background-color: $main-nav-button-hover-color;
+  border-style: hidden;
+  border-radius: 0.25rem;
 }
 
 a {
   color: $link-color;
 }
 
-a:hover{
+a:hover {
   color: $link-hover;
+}
+
+h2.title {
+  @extend .mt-2;
+}
+
+#postnav {
+  background-color: $postnavbar-color;
+  border-color: $button-border-color;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 0.1em;
+}
+
+#postnavbutton {
+  font-weight: 600;
+}
+
+.post-nav-hover:hover {
+  background-color: $postnavbar-hover-color;
+  border-radius: 0.4em;
+}
+
+.post-nav-selected {
+  // background-color: $postnavbar-selected-color;
+  border-color: $postnavbar-selected-border-color;
+  border-width: thin;
+  border-radius: 0.1em;
+  border-style:solid;
+  @extend .shadow-sm;
 
 }
 
-h2.title{
-  @extend .mt-2;
-  
+#custom-toggler-icon {
+  margin-right: 0.5rem;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(69, 155, 163, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.rounded-picture {
+  border-radius: 0.4rem;
 }

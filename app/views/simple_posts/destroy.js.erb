@@ -1,8 +1,7 @@
 <% if @simple_post %>
   $('#show-post').html("<%= j render @simple_post %>");
-  $('#post-navigation').html("<%= j render partial: 'simple_posts/shared/posts_navigation', locals: {simple_post: @simple_post} %>");
   $('#post-actions').html("<%=  j render partial: 'simple_posts/shared/posts_actions', locals: {simple_post: @simple_post, user: @user} %>");
-
+  $('#post-navigation').html("<%= j render partial: 'simple_posts/shared/posts_navigation', locals: {simple_post: @simple_post, user: @user} %>");
 
 <% else  %>
   $('#post-panel').html("<%= j render partial: 'simple_posts/shared/posts_empty' %>");

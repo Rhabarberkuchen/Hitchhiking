@@ -1,0 +1,9 @@
+<% if object.errors.any? %>
+  <div class="row justify-content-around">
+    <div class="col-12 col-sm-5 error-panel">
+
+      <%= devise_error_messages! %>
+
+    </div>
+  </div>
+<% end %>
