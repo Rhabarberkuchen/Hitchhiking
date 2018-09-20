@@ -1,3 +1,4 @@
+
 class SimplePostsController < ApplicationController
   before_action :set_simple_post, only: [:show, :edit, :update, :destroy]
   helper ButtonHelper
@@ -11,39 +12,43 @@ class SimplePostsController < ApplicationController
   # GET /simple_posts/1
   # GET /simple_posts/1.json
   def show
-    @user = User.find{params[:id]}
+    @user = User.find(params[:user_id])
     @simple_post = SimplePost.find(params[:id])
-      respond_to do |format|
+    respond_to do |format|
       format.js
-      format.html # show.html.erb
     end
   end
 
   # GET /simple_posts/new
   def new
+
     @simple_post = SimplePost.new
-    @user = current_user
+    @simple_post.build_hh_attribute
+    @user = User.find(params[:user_id])
   end
 
   # GET /simple_posts/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:user_id])
+    if @simple_post.hh_attribute.nil?
+      @simple_post.build_hh_attribute
+    end
   end
 
   # POST /simple_posts
   # POST /simple_posts.json
   def create
     @simple_post = SimplePost.new(simple_post_params)
-    @user = current_user
-    @simple_post.user_id = @user.id
-
+    @user = User.find(params[:user_id])
+    @simple_post.user = @user
+    byebug
     respond_to do |format|
       if @simple_post.save
         format.html { redirect_to @user, notice: 'Simple post was successfully created.' }
-        format.json { render :show, status: :created, location: @simple_post }
+        # format.json { render :show, status: :created, location: @simple_post }
       else
         format.html { render :new }
-        format.json { render json: @simple_post.errors, status: :unprocessable_entity }
+        # format.json { render json: @simple_post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,9 +56,10 @@ class SimplePostsController < ApplicationController
   # PATCH/PUT /simple_posts/1
   # PATCH/PUT /simple_posts/1.json
   def update
-    @user = current_user
+    @user = User.find(params[:user_id])
     respond_to do |format|
       if @simple_post.update(simple_post_params)
+        flash[:notice] = "success"
         format.html { redirect_to @user, notice: 'Simple post was successfully updated.' }
         format.json { render :show, status: :ok, location: @simple_post }
       else
@@ -66,11 +72,11 @@ class SimplePostsController < ApplicationController
   # DELETE /simple_posts/1
   # DELETE /simple_posts/1.json
   def destroy
-    @user = current_user
+    @user = User.find(params[:user_id])
     @simple_post.destroy
     @simple_post = @user.simple_posts.last
     respond_to do |format|
-    #   format.html { redirect_to simple_posts_url, notice: 'Simple post was successfully destroyed.' }
+      #   format.html { redirect_to simple_posts_url, notice: 'Simple post was successfully destroyed.' }
       format.js
     end
   end
@@ -83,6 +89,6 @@ class SimplePostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def simple_post_params
-    params.require(:simple_post).permit(:title, :text, {pictures: []})
+    params.require(:simple_post).permit(:id, :title, :text, {pictures: []},:user, hh_attribute_attributes: [:start, :destination, :time, :stops, :id, :simple_post_id, :_destroy])
   end
 end

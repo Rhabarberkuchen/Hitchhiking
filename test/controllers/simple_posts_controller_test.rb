@@ -19,10 +19,10 @@ class SimplePostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create simple_post" do
     assert_difference('SimplePost.count') do
-    post user_simple_posts_url(@user, @simple_post), params: { simple_post: { pictures: @simple_post.pictures, text: @simple_post.text, title: @simple_post.title, user_id: @simple_post.user_id } }
+    post user_simple_posts_url(@user, @simple_post), params: { simple_post: { pictures: @simple_post.pictures, text: @simple_post.text, title: @simple_post.title, user: @simple_post.users } }
     end
 
-    assert_redirected_to user_simple_post_url(@user, @simple_post)
+    assert_redirected_to @user
   end
 
   test "should show simple_post" do
@@ -37,7 +37,7 @@ class SimplePostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update simple_post" do
     patch user_simple_post_url(@user, @simple_post), params: { simple_post: { pictures: @simple_post.pictures, text: @simple_post.text, title: @simple_post.title, user_id: @simple_post.user_id } }
-    assert_redirected_to user_simple_post_url(@user, @simple_post)
+    assert_redirected_to @user
   end
 
   test "should destroy simple_post" do

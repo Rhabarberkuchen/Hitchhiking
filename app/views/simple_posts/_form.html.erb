@@ -1,11 +1,9 @@
-<%= form_with(model: simple_post, url: [@user, @simple_post], local: true) do |form| %>
+<%= form_with model: @simple_post, url: [@user, @simple_post], local: true do |form| %>
 <% if simple_post.errors.any? %>
   <div class="row">
-
     <div class="col-12" id="error_explanation">
       <h2 ><%= pluralize(simple_post.errors.count, "error") %>
         prohibited this simple_post from being saved:</h2>
-
       <ul>
         <% simple_post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -15,32 +13,37 @@
   </div>
 <% end %>
 <div class="row pb-2">
-    <div class="col-2">
-      <%= form.label :title %></div>
-    <div class="col-10">
-      <%= form.text_field :title, class: "form-control" , id: :simple_post_title %>
-    </div>
-</div>
-
-<div class="row pb-2">
-    <div class="col-2">
-      <%= form.label :text %></div>
-    <div class="col-10">
-      <%= form.text_area :text, class: "form-control" , id: :simple_post_text %>
+  <div class="col-2">
+    <%= form.label :title %>
+  </div>
+  <div class="col-10">
+    <%= form.text_field :title, class: "form-control" , id: :simple_post_title %>
   </div>
 </div>
 
 <div class="row pb-2">
-    <div class="col-2">
-      <%= form.label :pictures %></div>
-    <div class="col-10">
-      <%= form.file_field :pictures, class: "form-control" , id: :simple_post_pictures, multiple: true %>
-    </div>
+  <div class="col-2">
+    <%= form.label :text %>
+  </div>
+  <div class="col-10">
+    <%= form.text_area :text, class: "form-control" , id: :simple_post_text %>
+  </div>
 </div>
 
 <div class="row pb-2">
-  <div class=" col-12 actions">
-    <%= form.submit "Save", class:"btn btn-info" %>
+  <div class="col-2">
+    <%= form.label :pictures %></div>
+  <div class="col-10">
+    <%= form.file_field :pictures, class: "form-control" , id: :simple_post_pictures, multiple: true %>
   </div>
 </div>
+
+<%= render partial: "simple_posts/shared/hh_attribute_form", locals:{ form: form} %>
+
+<div class="row pb-2">
+<div class=" col-12 actions">
+  <%= form.submit "Save", class:"btn btn-info" %>
+</div>
+</div>
+
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180823114617) do
+ActiveRecord::Schema.define(version: 20180912182533) do
 
   create_table "friend_requests", force: :cascade do |t|
     t.integer "requester_id"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20180823114617) do
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "hh_attributes", force: :cascade do |t|
+    t.string "start"
+    t.string "destination"
+    t.time "time"
+    t.integer "stops"
+    t.integer "simple_post_id"
+    t.index ["simple_post_id"], name: "index_hh_attributes_on_simple_post_id"
   end
 
   create_table "simple_posts", force: :cascade do |t|
@@ -58,7 +67,6 @@ ActiveRecord::Schema.define(version: 20180823114617) do
     t.datetime "updated_at", null: false
     t.string "avatar"
     t.integer "km", default: 0
-    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

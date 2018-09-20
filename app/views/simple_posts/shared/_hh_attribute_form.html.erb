@@ -1,0 +1,45 @@
+      <a data-toggle="collapse" href="#hh-stats-collapse" aria-expanded="false" aria-controls="hh-stats-collapse">
+      <h5 class="mb-0"><%= svg 'chevron-down' %>Hitchhiking Attributes</h5></a>
+
+    <div id="hh-stats-collapse" class="collapse" >
+      <div class=" card-body">
+
+        <%= form.fields_for :hh_attribute do |h| %>
+        <div class="row">
+          <div class="col-6">
+            <%= h.label :start %>
+          </div>
+          <div class="col-6">
+            <%= h.text_field :start, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= h.label :destination %>
+          </div>
+          <div class="col-6">
+            <%= h.text_field :destination, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= h.label :stops %>
+          </div>
+          <div class="col-6">
+            <%= h.text_field :stops, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= h.label :time %>
+          </div>
+          <div class="col-6">
+            <%= h.text_field :time, class: "form-control" %>
+          </div>
+        </div>
+
+        <%= submit_tag "Reset", type: :reset %>
+      <% end %>
+
+    </div>
+  </div>

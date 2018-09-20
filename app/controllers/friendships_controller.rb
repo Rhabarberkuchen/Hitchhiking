@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-    helper FriendsAndEditButtonHelper
+    helper ButtonHelper
 
   def index
     user = current_user

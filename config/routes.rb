@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   get 'users/:id/friendships', to: 'friendships#show_friendships_of_user', as: 'friendship'
 
 
-  resources :users, only: [:index, :show, :edit, :update] do
+  resources :users, only: [:index, :edit, :update] do
     resources :simple_posts
-        resources :hitchhiking_posts
   end
 
+  resources :hh_attributes, only: [:show, :edit, :update, :create]
   resources :friendships
   resources :friend_requests
 

@@ -8,24 +8,24 @@
     <% end %>
   </div>
 </div>
-
-
-
+<% if !@simple_post.hh_attribute.nil? %>
+<%= render partial: "simple_posts/shared/hh_attribute", locals: {hh_attribute: @simple_post.hh_attribute} %>
+<% end %>
 <!-- slider für posts: gucken ob überhaupt bilder da sind, dann erstes element muss active in der klasse haben -->
 <% if  !@simple_post.pictures[0].nil? %>
   <div class="row py-2">
     <div class="col-12 col-sm-10">
-      <div class="row justify-content-around">
-        <div class="col-sm-6">
+      <!-- <div class="row justify-content-around"> -->
+        <!-- <div class="col-sm-6"> -->
           <div id="postCarouselControls" class="carousel slide" data-ride:"carousel"="data-ride:">
             <div class="carousel-inner">
               <div class="carousel-item active ">
-                <%= image_tag @simple_post.pictures[0], alt: "Pictures of Post", class: "d-block w-100 rounded-picture" %>
+                <%= image_tag @simple_post.pictures[0], alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
               </div>
               <% if  !@simple_post.pictures[1].nil? %>
                 <% @simple_post.pictures.drop(1).each do |p| %>
                   <div class="carousel-item ">
-                    <%= image_tag p, alt: "Pictures of Post", class: "d-block w-100 rounded-picture" %>
+                    <%= image_tag p, alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
                   </div>
                 <% end %>
               </div>
@@ -39,8 +39,8 @@
               </a>
 
             <% end %>
-          </div>
-        </div>
+          <!-- </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </div>
