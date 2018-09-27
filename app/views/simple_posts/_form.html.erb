@@ -1,9 +1,9 @@
 <%= form_with model: @simple_post, url: [@user, @simple_post], local: true do |form| %>
 <% if simple_post.errors.any? %>
-  <div class="row">
-    <div class="col-12" id="error_explanation">
-      <h2 ><%= pluralize(simple_post.errors.count, "error") %>
-        prohibited this simple_post from being saved:</h2>
+  <div class="row justify-content-around mb-3">
+    <div class="col-11 col-sm-6 error-explanation" >
+      <h5 ><%= pluralize(simple_post.errors.count, "error") %>
+        prohibited this simple_post from being saved:</h5>
       <ul>
         <% simple_post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -40,10 +40,11 @@
 
 <%= render partial: "simple_posts/shared/hh_attribute_form", locals:{ form: form} %>
 
-<div class="row pb-2">
-<div class=" col-12 actions">
-  <%= form.submit "Save", class:"btn btn-info" %>
-</div>
+<div class="row pb-2 pt-4 justify-content-center">
+  <div class=" col-2">
+    <%= form.submit "Save", class:"btn btn-info" %>
+    <%= link_to 'Back', user_path(@user) %>
+  </div>
 </div>
 
 <% end %>

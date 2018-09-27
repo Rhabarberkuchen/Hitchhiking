@@ -3,7 +3,7 @@
   <h2 class="text-center title">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render partial: 'shared/error_message', locals: {object: resource} %>
+<!-- errors display -->
   <div class="row">
     <div class="col-12">
       <%= f.label :email %><br/>

@@ -8,8 +8,11 @@
     </div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
-      <%= render partial: 'shared/error_message', locals: {object: resource} %>
-    <div class="row">
+    <div class="row justify-content-around mb-3">
+      <div class="col-11 col-sm-6 error-explanation">
+        <%= devise_error_messages! %>
+      </div>
+    </div>    <div class="row">
       <div class="col-6">
         <%= f.file_field :avatar%>
       </div>

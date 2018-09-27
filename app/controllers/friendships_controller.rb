@@ -2,8 +2,7 @@ class FriendshipsController < ApplicationController
     helper ButtonHelper
 
   def index
-    user = current_user
-    @friends = user.friends
+    @friends = current_user.friends
   end
 
 end

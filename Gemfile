@@ -63,3 +63,8 @@ gem 'nested_scaffold'
 
 #file upload
 gem 'carrierwave'
+
+#openstreetmap
+gem 'leaflet-rails'
+gem 'geocoder'
+gem 'openssl'

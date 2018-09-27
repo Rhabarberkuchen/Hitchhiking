@@ -4,7 +4,7 @@
 }
 
 body {
-  padding-top: 50px;
+  padding-top: 60px;
   background-color: $bgcolor;
   font-family: 'Exo 2', sans-serif;
 }
@@ -48,7 +48,6 @@ body {
 
 .btn:hover {
   border-color: $button-border-color;
-  border-width: medium;
   background-color: $button-color;
 }
 
@@ -93,6 +92,7 @@ h2.title {
   border-width: thin;
   border-radius: 0.1em;
   border-style:solid;
+  background-color: $postnavbar-selected-color;
   @extend .shadow-sm;
 
 }
@@ -104,4 +104,12 @@ h2.title {
 
 .rounded-picture {
   border-radius: 0.4rem;
+}
+
+.error-explanation{
+  border-color: $error-border-color;
+  border-radius: 0.4em;
+  border-style: solid;
+  border-width: thin;
+  background-color: $error-background-color;
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-@import url('https://fonts.googleapis.com/css?family=Exo+2');
-</style>
+
     <title>Hitchhiking</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>  @import url('https://fonts.googleapis.com/css?family=Exo+2');
+    </style>
   </head>
 
   <body>
@@ -19,8 +19,8 @@
           <%= render "shared/main_navigation" %>
         </div>
       </div>
-      <div class="row " >
-        <div class="col-12  ">
+      <div class="row ">
+        <div class="col-12">
           <%= yield %>
         </div>
       </div>

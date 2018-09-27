@@ -13,3 +13,25 @@ span.date{
   font-weight: 400;
   font-size: 0.8em
 }
+
+.hh-stats-form {
+  border-color: #fcd96f;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.4rem;
+  background-color: $accent-color-second;
+}
+.hh-stats{
+
+}
+
+a.hh-link{
+  color: black;
+}
+
+a.hh-link:hover{
+   text-decoration: none;
+   color: DimGray ;
+}
+
+#mapid {width: 600px; height: 400px; }

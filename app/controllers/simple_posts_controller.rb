@@ -23,7 +23,9 @@ class SimplePostsController < ApplicationController
   def new
 
     @simple_post = SimplePost.new
-    @simple_post.build_hh_attribute
+    @hh_attribute = @simple_post.build_hh_attribute
+    @hh_attribute.build_start_location
+    @hh_attribute.build_destination_location
     @user = User.find(params[:user_id])
   end
 
@@ -32,6 +34,9 @@ class SimplePostsController < ApplicationController
     @user = User.find(params[:user_id])
     if @simple_post.hh_attribute.nil?
       @simple_post.build_hh_attribute
+      @hh_attribute = @simple_post.hh_attribute
+      @hh_attribute.build_start_location
+      @hh_attribute.build_destination_location
     end
   end
 
@@ -41,7 +46,6 @@ class SimplePostsController < ApplicationController
     @simple_post = SimplePost.new(simple_post_params)
     @user = User.find(params[:user_id])
     @simple_post.user = @user
-    byebug
     respond_to do |format|
       if @simple_post.save
         format.html { redirect_to @user, notice: 'Simple post was successfully created.' }
@@ -89,6 +93,9 @@ class SimplePostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def simple_post_params
-    params.require(:simple_post).permit(:id, :title, :text, {pictures: []},:user, hh_attribute_attributes: [:start, :destination, :time, :stops, :id, :simple_post_id, :_destroy])
+    params.require(:simple_post).permit(:id, :title, :text, {pictures: []},:user,
+      hh_attribute_attributes: [:time, :lifts, :id, :simple_post_id, :_destroy,
+        start_location_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy],
+        destination_location_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy]])
   end
 end

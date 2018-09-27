@@ -1,6 +1,8 @@
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
+  <div class="row justify-content-around mb-3">
+    <div class="col-11 col-sm-6 error-explanation" >
+    <div id="error-explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -9,6 +11,8 @@
       <% end %>
       </ul>
     </div>
+  </div>
+</div>
   <% end %>
 
   <div class="actions">
