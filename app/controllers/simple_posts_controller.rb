@@ -24,8 +24,8 @@ class SimplePostsController < ApplicationController
 
     @simple_post = SimplePost.new
     @hh_attribute = @simple_post.build_hh_attribute
-    @hh_attribute.build_start_location
-    @hh_attribute.build_destination_location
+    @hh_attribute.build_start
+    @hh_attribute.build_destination
     @user = User.find(params[:user_id])
   end
 
@@ -35,8 +35,8 @@ class SimplePostsController < ApplicationController
     if @simple_post.hh_attribute.nil?
       @simple_post.build_hh_attribute
       @hh_attribute = @simple_post.hh_attribute
-      @hh_attribute.build_start_location
-      @hh_attribute.build_destination_location
+      @hh_attribute.build_start
+      @hh_attribute.build_destination
     end
   end
 
@@ -95,7 +95,7 @@ class SimplePostsController < ApplicationController
   def simple_post_params
     params.require(:simple_post).permit(:id, :title, :text, {pictures: []},:user,
       hh_attribute_attributes: [:time, :lifts, :id, :simple_post_id, :_destroy,
-        start_location_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy],
-        destination_location_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy]])
+        start_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy],
+      destination_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy]])
+    end
   end
-end

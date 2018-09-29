@@ -1,5 +1,7 @@
 {
   "name": "hitchhiking",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "leaflet-routing-machine": "^3.2.11"
+  }
 }

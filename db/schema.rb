@@ -32,17 +32,22 @@ ActiveRecord::Schema.define(version: 20180926122452) do
     t.time "time"
     t.integer "lifts"
     t.integer "simple_post_id"
+    t.integer "start_id"
+    t.integer "destination_id"
+    t.string "route"
+    t.index ["destination_id"], name: "index_hh_attributes_on_destination_id"
     t.index ["simple_post_id"], name: "index_hh_attributes_on_simple_post_id"
+    t.index ["start_id"], name: "index_hh_attributes_on_start_id"
   end
 
   create_table "locations", force: :cascade do |t|
+    t.string "type"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.integer "hh_attribute_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hh_attribute_id"], name: "index_locations_on_hh_attribute_id"
+    t.index ["type"], name: "index_locations_on_type"
   end
 
   create_table "simple_posts", force: :cascade do |t|

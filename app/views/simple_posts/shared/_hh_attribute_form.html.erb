@@ -10,7 +10,7 @@
 
         <%= form.fields_for :hh_attribute do |h| %>
         <div class="row pb-2">
-          <%= h.fields_for :start_location do |s| %>
+          <%= h.fields_for :start do |s| %>
           <div class="col-6">
             <%= s.label :address,"Starting Point" %>
           </div>
@@ -20,7 +20,7 @@
           <% end %>
         </div>
         <div class="row pb-2">
-          <%= h.fields_for :destination_location do |d| %>
+          <%= h.fields_for :destination do |d| %>
           <div class="col-6">
             <%= d.label :address, "Destination" %>
           </div>
