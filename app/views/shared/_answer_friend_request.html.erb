@@ -1,23 +1,34 @@
-<div class="panel col-12 col-m-8">
-  <h2>jawollo</h2>
+<div class="panel col-12 col-m-8 mb-4">
   <% current_user.friend_requests.each do |request|
   requester = User.find(request.requester_id)
 %>
     <div class="row">
-      <div class="col-3 col-sm-2 pb-2">
-        <%= image_tag(requester.avatar, :alt => "Profile picture", class: "img-fluid rounded-profile" )%>
-      </div>
-      <div class=" col-6 col-sm-8">
-        <h3><%= link_to requester.name , user_path(requester.id) %></h3>
+
+      <div class="col-4 col-sm-2 pb-2">
+        <div class="d-flex align-items-center h-100">
+          <%= image_tag(requester.avatar, :alt => "Profile picture", class: "img-fluid rounded-picture" )%>
+        </div>
       </div>
 
-      <div class=" col-1 col-sm-1">
-        <h3><%= link_to "accept", users_accept_friend_request_path(request_id: request.id), method: :post, class: "btn" %></h3>
-      </div>
-      <div class=" col-1 col-sm-1">
-        <h3><%= link_to "deny", users_deny_friend_request_path(request_id: request.id), method: :post, class: "btn" %></h3>
+      <div class="col-8 col-sm-8">
+        <div class="row">
+          <div class="col-12">
+            <h3><%= link_to requester.name , user_path(requester.id) %></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>requested to be friends with you</p>
+          </div>
+        </div>
       </div>
 
-    </div>
-  <% end %>
+      <div class=" col-9 col-sm-2">
+        <div class="btn-group float-right" role="group" aria-label="Deny and accept friendship buttons">
+          <h3><%= link_to "accept", users_accept_friend_request_path(request_id: request.id), method: :post, class: "btn" %></h3>
+          <h3><%= link_to "deny", users_deny_friend_request_path(request_id: request.id), method: :post, class: "btn" %></h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

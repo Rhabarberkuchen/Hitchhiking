@@ -2,8 +2,9 @@ class SimplePost < ApplicationRecord
   belongs_to :user
   has_one :hh_attribute, dependent: :destroy
 
-  validates_presence_of :title
+  validates_length_of :title, minimum: 5, maximum: 100, allow_blank: false
   accepts_nested_attributes_for :hh_attribute, allow_destroy: true
+  
   before_save :mark_hh_attribute_for_removal
 
   mount_uploaders :pictures, PostPicturesUploader
@@ -12,15 +13,15 @@ class SimplePost < ApplicationRecord
   # validates_associated :hh_attribute
 
   def next
-   user.simple_posts.where("id > ?", id).first
- end
+    user.simple_posts.where("id > ?", id).first
+  end
 
- def prev
-   user.simple_posts.where("id < ?", id).last
- end
+  def prev
+    user.simple_posts.where("id < ?", id).last
+  end
 
- def mark_hh_attribute_for_removal
-   hh_attribute.mark_for_destruction if hh_attribute.everything_blank?
- end
+  def mark_hh_attribute_for_removal
+    hh_attribute.mark_for_destruction if hh_attribute.everything_blank?
+  end
 
 end

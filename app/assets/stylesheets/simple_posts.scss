@@ -32,7 +32,72 @@ a.hh-link:hover {
 }
 
 #mapid {
-  width: 600px;
   height: 400px;
+  width: 100px;
     border-radius: 0.4rem;
+    border-style: solid;
+    border-color: grey;
+    border-width: thin;
+}
+
+#postnav {
+  background-color: $postnavbar-color;
+  border-color: $button-border-color;
+  border-width: thin;
+  border-style: solid;
+  border-radius: 0.1em;
+}
+
+#postnavbutton {
+  font-weight: 600;
+}
+
+.post-nav-hover:hover {
+  background-color: $postnavbar-hover-color;
+  border-radius: 0.4em;
+}
+
+.post-nav-selected {
+  // background-color: $postnavbar-selected-color;
+  border-color: $postnavbar-selected-border-color;
+  border-width: thin;
+  border-radius: 0.1em;
+  border-style:solid;
+  background-color: $postnavbar-selected-color;
+  @extend .shadow-sm;
+
+}
+
+
+
+.navbar-expand-vertical-md{
+  @extend .navbar-expand-md;
+  -webkit-box-orient: vertical !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+  -ms-flex-flow: column nowrap !important;
+  flex-flow: column nowrap !important;
+}
+
+.custom-toggler-icon {
+  margin-right: 0.5rem;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(69, 155, 163, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+#postnav-header{
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+  #postnav-header{
+display:none;
+  }
+}
+
+#pictureslider{
+    border-radius: 0.4em;
+    background: $post-slider-color;
+    width: 100%;
+    border-color: $post-slider-border-color;
+    border-style: solid;
+    border-width: thin;
 }
