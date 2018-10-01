@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20180926122452) do
   end
 
   create_table "hh_attributes", force: :cascade do |t|
-    t.time "time"
+    t.integer "hours"
+    t.integer "minutes"
+    t.integer "days"
     t.integer "lifts"
     t.integer "simple_post_id"
     t.integer "start_id"

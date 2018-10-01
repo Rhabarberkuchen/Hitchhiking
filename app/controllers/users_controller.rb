@@ -73,12 +73,18 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     friend = User.find(params[:friend_id])
     user.friends << friend
+    respond_to do |format|
+      format.js
+    end
   end
 
   def remove_friend
     user = User.find(params[:user_id])
     friend = User.find(params[:friend_id])
     user.friends.destroy(friend)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def add_friend_request
@@ -86,6 +92,9 @@ class UsersController < ApplicationController
     requester =  User.find(params[:requester_id])
     fr = FriendRequest.create(user_id: requested.id, requester_id: requester.id)
     requested.friend_requests << fr
+    respond_to do |format|
+      format.js
+    end
   end
 
   def accept_friend_request
@@ -95,13 +104,18 @@ class UsersController < ApplicationController
     requester = User.find(request.requester_id)
     requested.friends << requester
     requested.friend_requests.destroy(request)
-
+    respond_to do |format|
+      format.js
+    end
   end
 
   def deny_friend_request
     request = FriendRequest.find(params[:request_id])
     requested = User.find(request.user_id)
     requested.friend_requests.destroy(request)
+    respond_to do |format|
+      format.js
+    end
   end
 
 

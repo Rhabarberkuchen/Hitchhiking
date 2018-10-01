@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-11 pb-1">
+<div class="row m-0">
+  <div class="col-12 pb-1">
     <span class="title">
       <%= @simple_post.title %></span>
     <span class="date"><%= @simple_post.created_at.strftime("%e.%m.%Y, %H:%M h") %></span>
@@ -9,41 +9,16 @@
   </div>
 </div>
 
-<% if !@simple_post.hh_attribute.nil? %>
+<% if @simple_post.hh_attribute %>
   <%= render partial: "simple_posts/shared/hh_attribute", locals: {hh_attribute: @simple_post.hh_attribute} %>
 <% end %>
-<% if  !@simple_post.pictures[0].nil? %>
-  <div class="row py-2">
-    <div class="col-12 col-sm-10">
-      <div id="postCarouselControls" class="carousel slide" data-ride:"carousel"="data-ride:">
-        <div class="carousel-inner">
-          <div class="carousel-item active ">
-            <%= image_tag @simple_post.pictures[0], alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
-          </div>
-          <% if  !@simple_post.pictures[1].nil? %>
-            <% @simple_post.pictures.drop(1).each do |p| %>
-              <div class="carousel-item ">
-                <%= image_tag p, alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
-              </div>
-            <% end %>
-          </div>
-          <a class="carousel-control-prev" href="#postCarouselControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#postCarouselControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-
-        <% end %>
-      </div>
-    </div>
-  </div>
+<% if  @simple_post.pictures[0] %>
+  <%= render partial: "simple_posts/shared/pictures", locals: {simple_post: @simple_post} %>
 <% end %>
 
-<div class="row pb-2">
-  <div class="col-12 col-sm-10">
-    <%= @simple_post.text %>
+<div class="row pt-2 m-0">
+  <div class="col-sm-12 ">
+    <p>
+      <%= @simple_post.text %></p>
   </div>
 </div>

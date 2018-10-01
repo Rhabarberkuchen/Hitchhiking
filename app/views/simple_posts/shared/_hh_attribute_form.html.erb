@@ -1,11 +1,11 @@
-<div class="row py-2 justify-content-end ">
-  <div class="col-12 col-sm-10 py-2 hh-stats-form">
+<div class="row py-2 justify-content-end m-0">
+  <div class="col-12 col-sm-10 p-0 py-2 hh-stats-form">
 
     <a data-toggle="collapse" class="hh-link" href="#hh-stats-collapse" aria-expanded="false" aria-controls="hh-stats-collapse">
       <h5 class="mb-0"><%= svg 'chevron-down' %>Hitchhiking Attributes</h5>
     </a>
 
-    <div id="hh-stats-collapse" class="collapse ">
+    <div id="hh-stats-collapse" class="collapse">
       <div class=" card-body">
 
         <%= form.fields_for :hh_attribute do |h| %>
@@ -34,19 +34,25 @@
             <%= h.label :lifts %>
           </div>
           <div class="col-6">
-            <%= h.text_field :lifts, class: "form-control" %>
+            <%= h.number_field :lifts, class: "form-control" %>
           </div>
         </div>
         <div class="row pb-2  ">
           <div class="col-6">
-            <%= h.label :time %>
+            <%= h.label "Time" %>
           </div>
-          <div class="col-6">
-            <%= h.text_field :time, class: "form-control" %>
+          <div class="col-2">
+            <%= h.text_field :days, class: "form-control", placeholder: "Days" %>
+          </div>
+          <div class="col-2">
+            <%= h.text_field :hours, class: "form-control", placeholder: "Hours" %>
+          </div>
+          <div class="col-2">
+            <%= h.text_field :minutes, class: "form-control", placeholder: "Minutes" %>
           </div>
         </div>
 
-        <%= submit_tag "Reset", type: :reset %>
+        <%= submit_tag "Reset", type: :reset, class: "btn" %>
       <% end %>
 
     </div>

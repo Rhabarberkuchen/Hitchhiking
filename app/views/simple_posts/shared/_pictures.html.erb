@@ -1,0 +1,31 @@
+<div class="row py-2 m-0" >
+  <div class="col-12">
+    <div class="row justify-content-around m-0" id="pictureslider">
+      <div class="col-12 col-sm-6" >
+        <div id="postCarouselControls" class="carousel slide" data-ride:"carousel"="data-ride:">
+          <div class="carousel-inner">
+            <div class="carousel-item active ">
+              <%= image_tag simple_post.pictures[0], alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
+            </div>
+            <% if  simple_post.pictures[1] %>
+              <% simple_post.pictures.drop(1).each do |p| %>
+                <div class="carousel-item ">
+                  <%= image_tag p, alt: "Pictures of Post", class: "d-block w-100 h-50 rounded-picture" %>
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#postCarouselControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#postCarouselControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

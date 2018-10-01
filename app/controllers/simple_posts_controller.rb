@@ -94,7 +94,7 @@ class SimplePostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def simple_post_params
     params.require(:simple_post).permit(:id, :title, :text, {pictures: []},:user,
-      hh_attribute_attributes: [:time, :lifts, :id, :simple_post_id, :_destroy,
+      hh_attribute_attributes: [:days, :hours, :minutes, :lifts, :id, :simple_post_id, :_destroy,
         start_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy],
       destination_attributes: [:id, :address, :longitude, :latitude, :hh_attribute_id, :_destroy]])
     end

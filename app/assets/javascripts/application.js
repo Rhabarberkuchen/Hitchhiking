@@ -17,3 +17,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+document.getElementById("simple_post_pictures").onchange = upload_picture() {
+    document.getElementById("uploadFile").value = this.value;
+};
+
+document.getElementById("user_avatar").onchange = upload_picture() {
+    document.getElementById("uploadFile").value = this.value;
+};

@@ -2,18 +2,38 @@
   background: $main-nav-button-hover-color;
   /* text markieren farbe */
 }
-
+.hh-stats-form {
+  border-color: #fcd96f;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0.4rem;
+  background-color: $accent-color-second;
+}
+.about-panel{
+  @extend .hh-stats-form;
+  min-height: 200px;
+}
 body {
   padding-top: 60px;
   background-color: $bgcolor;
   font-family: 'Exo 2', sans-serif;
 }
-.error-panel{
+
+.footer {
+  background-color: $post-slider-border-color;
+}
+.footer a {
+  color: $accent-color-second;
+}
+
+.error-panel {
   background-color: red;
   border-color: darken(red, 1);
   border-style: solid;
   border-width: thick;
 }
+
+
 .panel {
   padding: 0.4rem;
   border-radius: 0.4rem;
@@ -69,47 +89,44 @@ h2.title {
   @extend .mt-2;
 }
 
-#postnav {
-  background-color: $postnavbar-color;
-  border-color: $button-border-color;
-  border-width: thin;
-  border-style: solid;
-  border-radius: 0.1em;
-}
-
-#postnavbutton {
-  font-weight: 600;
-}
-
-.post-nav-hover:hover {
-  background-color: $postnavbar-hover-color;
-  border-radius: 0.4em;
-}
-
-.post-nav-selected {
-  // background-color: $postnavbar-selected-color;
-  border-color: $postnavbar-selected-border-color;
-  border-width: thin;
-  border-radius: 0.1em;
-  border-style:solid;
-  background-color: $postnavbar-selected-color;
-  @extend .shadow-sm;
-
-}
-
-#custom-toggler-icon {
-  margin-right: 0.5rem;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(69, 155, 163, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
 .rounded-picture {
   border-radius: 0.4rem;
 }
 
-.error-explanation{
+.error-explanation {
   border-color: $error-border-color;
   border-radius: 0.4em;
   border-style: solid;
   border-width: thin;
   background-color: $error-background-color;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  // -webkit-appearance: none;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3em;
+  opacity: 0.5;
+  /* shows Spin Buttons per default (Chrome >= 39) */
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }

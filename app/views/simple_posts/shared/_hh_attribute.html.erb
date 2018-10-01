@@ -1,38 +1,56 @@
-<div class="row ">
-  <div class="col-10">
-    <div class="row">
-      <div class="col-2">
-        <bold>Start</bold>
+<div class="row pt-2 m-0 hh-stats-form">
+  <div class="col-sm-12   ">
+    <div class="row ">
+      <div class="col-12 col-sm-6">
+        <div class="row">
+          <div class="col-4">
+            Start
+          </div>
+          <div class="col-8">
+            <%= hh_attribute.start.address %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Destination
+          </div>
+          <div class="col-8">
+            <%= hh_attribute.destination.address %>
+          </div>
+        </div>
       </div>
-      <div class="col-4">
-        <%= hh_attribute.start.address %>
-      </div>
-      <div class="col-2">
-        Lifts
-      </div>
-      <div class="col-4">
-        <%= hh_attribute.lifts %>
+      <div class="col-12 col-sm-6">
+        <div class="row">
+          <div class="col-4">
+            Lifts
+          </div>
+          <div class="col-8">
+            <%= hh_attribute.lifts %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Time
+          </div>
+          <div class="col-8">
+            <% if hh_attribute.days %>
+              <%= hh_attribute.days.to_s + "Days, "%>
+            <%end %>
+            <% if hh_attribute.hours %>
+              <%= hh_attribute.hours.to_s + " Hours, "%>
+            <%end %>
+            <% if hh_attribute.minutes %>
+              <%= hh_attribute.minutes.to_s + " Minutes"%>
+            <%end %>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-2">
-        Destination
-      </div>
-      <div class="col-4">
-        <%= hh_attribute.destination.address %>
-      </div>
+      <div class="w-100 m-3" id="mapid"></div>
+    </div>
 
-      <div class="col-2">
-        Time
-      </div>
-      <div class="col-4">
-        <%= hh_attribute.time %>
-      </div>
-      <div id="mapid" style=""></div>
-      <div id="js">
-
-      </div>
-      <% require 'rest-client'
+    <% require 'rest-client'
 
     headers = {
       :accept => 'application/json; charset=utf-8'
@@ -40,27 +58,24 @@
      hh_attribute.route = RestClient.get "https://api.openrouteservice.org/directions?api_key=#{Rails.application.secrets.ors_key}&coordinates=#{hh_attribute.start.longitude},#{hh_attribute.start.latitude}|#{hh_attribute.destination.longitude},#{hh_attribute.destination.latitude}&profile=driving-car&format=geojson&units=km&instructions=false", headers
          %>
 
-        <script>
-          var mymap = L.map('mapid').setView([
-            <%= hh_attribute.start.latitude %>, <%= hh_attribute.destination.longitude %>
-          ], 7);
-          var startmarker = L.marker([<%=  hh_attribute.start.latitude %>, <%=  hh_attribute.start.longitude %>]).addTo(mymap);
-          var destinationmarker = L.marker([<%=  hh_attribute.destination.latitude %>, <%=  hh_attribute.destination.longitude %>]).addTo(mymap);
-          L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
-            id: 'mapbox.streets'
-          }).addTo(mymap);
-          var myStyle = {
-            "color": "#ff7800",
-            "weight": 5,
-            "opacity": 1
-          };
-          var mygeojson = <%== hh_attribute.route %>
-          document.getElementById("js").innerHTML = mygeojson;
-          L.geoJSON(mygeojson, {style: myStyle}).addTo(mymap);
-        </script>
-
-      </div>
+      <script>
+        var mymap = L.map('mapid').setView([
+          <%= hh_attribute.start.latitude %>, <%= hh_attribute.destination.longitude %>
+        ], 7);
+        var startmarker = L.marker([<%=  hh_attribute.start.latitude %>, <%=  hh_attribute.start.longitude %>]).addTo(mymap);
+        var destinationmarker = L.marker([<%=  hh_attribute.destination.latitude %>, <%=  hh_attribute.destination.longitude %>]).addTo(mymap);
+        L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
+          id: 'mapbox.streets'
+        }).addTo(mymap);
+        var myStyle = {
+          "color": "#ff7800",
+          "weight": 5,
+          "opacity": 1
+        };
+        var mygeojson = <%== hh_attribute.route %>
+        L.geoJSON(mygeojson, {style: myStyle}).addTo(mymap);
+      </script>
     </div>
   </div>

@@ -5,7 +5,11 @@ class HhAttribute < ApplicationRecord
 
   accepts_nested_attributes_for :start, allow_destroy: true
   accepts_nested_attributes_for :destination, allow_destroy: true
-  validates_presence_of :time, :lifts, if: :everything_present?
+  validates_presence_of :lifts
+  validates :lifts, numericality: { only_integer: true,  greater_than_or_equal_to: 1, less_than: 50 }, allow_blank: true
+  validates :days, numericality: { only_integer: true, less_than: 100 }, allow_blank: true
+    validates :hours, numericality: { only_integer: true, less_than: 25 }, allow_blank: true
+      validates :hours, numericality: { only_integer: true, less_than: 61 }, allow_blank: true
 
   def everything_present?
     !everything_blank?

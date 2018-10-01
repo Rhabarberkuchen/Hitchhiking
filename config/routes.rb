@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/sign_up', to: 'users/registrations#new'
     get '/sign_in', to: 'users/sessions#new'
     get '/users/:id', to: 'users#show'
+    get '/password/new', to: 'users/password#new'
     post '/users/add_friend/', to: 'users#add_friend'
     post '/users/remove_friend/', to: 'users#remove_friend'
     post '/users/add_friend_request', to: 'users#add_friend_request'
@@ -15,10 +16,11 @@ Rails.application.routes.draw do
   end
 
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
+  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords'}
 
   get 'users/:id/friendships', to: 'friendships#show_friendships_of_user', as: 'friendship'
-
+  get '/aboutus', to: 'pages#aboutus'
+  get '/privacy', to: 'pages#privacy'
 
   resources :users, only: [:index, :edit, :update] do
     resources :simple_posts
