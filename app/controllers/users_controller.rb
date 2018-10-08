@@ -74,7 +74,11 @@ class UsersController < ApplicationController
     friend = User.find(params[:friend_id])
     user.friends << friend
     respond_to do |format|
+<<<<<<< HEAD
       format.js
+=======
+      format.js { render 'friendbutton.js.erb' }
+>>>>>>> origin/master
     end
   end
 
@@ -82,9 +86,13 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     friend = User.find(params[:friend_id])
     user.friends.destroy(friend)
+<<<<<<< HEAD
     respond_to do |format|
       format.js
     end
+=======
+      render :template => 'friendbutton.js.erb'
+>>>>>>> origin/master
   end
 
   def add_friend_request

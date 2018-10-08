@@ -89,6 +89,10 @@ h2.title {
   @extend .mt-2;
 }
 
+<<<<<<< .merge_file_a16416
+=======
+
+>>>>>>> .merge_file_a14972
 .rounded-picture {
   border-radius: 0.4rem;
 }
@@ -103,6 +107,7 @@ h2.title {
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
+<<<<<<< .merge_file_a16416
   // -webkit-appearance: none;
   margin: 0;
   top: 0;
@@ -129,4 +134,13 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
+=======
+    // -webkit-appearance: none;
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3em;
+    opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
+>>>>>>> .merge_file_a14972
 }
