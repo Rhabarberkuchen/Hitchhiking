@@ -1,25 +1,31 @@
+<%# this is the navigation bar for the posts %>
 <div class="row ">
   <div class="col-12 h-100 ">
     <div class="navbar navbar-expand-vertical-md p-0 pb-2" >
       <div class="btn w-100 " id="postnav-header">
         <span class="navbar-toggler-icon custom-toggler-icon" ></span>Posts
       </div>
+      <%# this is the button to click on for expanding or collapsing the navigation bar %>
       <button class="btn w-100 navbar-toggler" id="postnavbutton" type="button" data-toggle="collapse" data-target="#postnav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Posts' navigation">
         <span class="navbar-toggler-icon custom-toggler-icon" ></span>Posts
       </button>
-      <div class="collapse navbar-collapse" id="postnav">
-        <ul class="navbar-nav flex-md-column">
+      <%# this is the bar that collapsess %>
+      <div class="collapse navbar-collapse w-100" id="postnav">
+        <ul class="navbar-nav flex-md-column w-100">
           <% user.simple_posts.reverse_each do |post| %>
 
-            <li class="nav-item ">
+            <li class="nav-item">
+              <%# if the id of the shown post is identical to the listed one, style for a selected post is shown %>
               <div class="<%= 'post-nav-selected' if simple_post.id == post.id %>">
               <%= link_to post.title, user_simple_post_path(user, post), remote: true, class:"post-nav-hover nav-link text-dark pl-2" %>
             </div>
             </li>
           <% end %>
+          </ul>
         </div>
-      </ul>
+
       <% if user.id == current_user.id %>
+      <%# if the shown posts are the current user's the button for adding a new post is rendered %>
         <%= link_to svg('plus'), new_user_simple_post_path(current_user), class: "btn w-100 ", role: "button" %>
       <% end %>
     </div>

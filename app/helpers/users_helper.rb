@@ -1,4 +1,5 @@
 module UsersHelper
+  #calculates age of user
   def age(birthday)
     today = Date.today
     age = today.year - birthday.year

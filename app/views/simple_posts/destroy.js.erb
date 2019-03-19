@@ -1,8 +1,11 @@
+// ajax if a post is destroyed: navigation bar has to be updated, the post actions if there is no next or previous post anymore and
+// the main view of the post that has to show the next one
 <% if @simple_post %>
   $('#show-post').html("<%= j render @simple_post %>");
   $('#post-actions').html("<%=  j render partial: 'simple_posts/shared/posts_actions', locals: {simple_post: @simple_post, user: @user} %>");
   $('#post-navigation').html("<%= j render partial: 'simple_posts/shared/posts_navigation', locals: {simple_post: @simple_post, user: @user} %>");
 
+//if there is no post left show the "no posts yet" view
 <% else  %>
   $('#post-panel').html("<%= j render partial: 'simple_posts/shared/posts_empty' %>");
 <% end %>

@@ -1,36 +1,40 @@
-<% if current_user.friend_requests.first != nil %>
-<div class="panel col-12 col-m-8 mb-4">
-  <% current_user.friend_requests.each do |request|
+<%# this is the partial that is rendered if a user got a friend request  %>
+
+  <%# in case there are friend requests %>
+    <% if current_user.friend_requests.first %>
+      <div class="panel col-12 col-m-8 mb-4">
+        <% current_user.friend_requests.each do |request|
   requester = User.find(request.requester_id)
 %>
-    <div class="row">
+          <div class="row">
+            <div class="col-4 col-sm-2 pb-2">
+              <div class="d-flex align-items-center h-100">
+                <%# Profile Picture is rendered %>
+                  <%= image_tag(requester.avatar, :alt => "Profile picture", class: "img-fluid rounded-picture" )%>
+                </div>
+              </div>
 
-      <div class="col-4 col-sm-2 pb-2">
-        <div class="d-flex align-items-center h-100">
-          <%= image_tag(requester.avatar, :alt => "Profile picture", class: "img-fluid rounded-picture" )%>
-        </div>
-      </div>
+              <div class="col-8 col-sm-8">
+                <div class="row">
+                  <div class="col-12">
+                    <h3><%= link_to requester.name , user_path(requester.id) %></h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p>requested to be friends with you</p>
+                  </div>
+                </div>
+              </div>
 
-      <div class="col-8 col-sm-8">
-        <div class="row">
-          <div class="col-12">
-            <h3><%= link_to requester.name , user_path(requester.id) %></h3>
+              <%# Buttons for accepting or denying friend requests%>
+                <div class=" col-9 col-sm-2">
+                  <div class="btn-group float-right" role="group" aria-label="Deny and accept friendship buttons">
+                    <h3><%= link_to "Accept", users_accept_friend_request_path(request_id: request.id), remote: true, method: :post, class: "btn" %></h3>
+                    <h3><%= link_to "Deny", users_deny_friend_request_path(request_id: request.id), remote: true, method: :post, class: "btn" %></h3>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <p>requested to be friends with you</p>
-          </div>
-        </div>
-      </div>
-
-      <div class=" col-9 col-sm-2">
-        <div class="btn-group float-right" role="group" aria-label="Deny and accept friendship buttons">
-          <h3><%= link_to "Accept", users_accept_friend_request_path(request_id: request.id), remote: true, method: :post, class: "btn" %></h3>
-          <h3><%= link_to "Deny", users_deny_friend_request_path(request_id: request.id), remote: true, method: :post, class: "btn" %></h3>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-<% end %>
+        <% end %>

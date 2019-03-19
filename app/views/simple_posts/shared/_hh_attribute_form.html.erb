@@ -1,61 +1,64 @@
-<div class="row py-2 justify-content-end m-0">
-  <div class="col-12 col-sm-10 p-0 py-2 hh-stats-form">
+<%# the form of HhAttribute %>
 
-    <a data-toggle="collapse" class="hh-link" href="#hh-stats-collapse" aria-expanded="false" aria-controls="hh-stats-collapse">
-      <h5 class="mb-0"><%= svg 'chevron-down' %>Hitchhiking Attributes</h5>
-    </a>
+  <div class="row py-2 justify-content-end m-0">
+    <div class="col-12 col-sm-10 p-0 py-2 hh-stats-form">
+      <%# it can be extended to show the form or it can be hidden %>
+        <a data-toggle="collapse" class="hh-link" href="#hh-stats-collapse" aria-expanded="false" aria-controls="hh-stats-collapse">
+          <h5 class="mb-0"><%= svg 'chevron-down' %>Hitchhiking Attributes</h5>
+        </a>
 
-    <div id="hh-stats-collapse" class="collapse">
-      <div class=" card-body">
+        <div id="hh-stats-collapse" class="collapse">
+          <div class=" card-body">
+            <%# fields_for :hh_attribute indicates nested attributes %>
+              <%= form.fields_for :hh_attribute do |h| %>
+              <div class="row pb-2">
+                <%= h.fields_for :start do |s| %>
+                <div class="col-6">
+                  <%= s.label :address,"Starting Point" %>
+                </div>
+                <div class="col-6">
+                  <%= s.text_field :address, class: "form-control" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="row pb-2">
+              <%# again nested attributes %>
+                <%= h.fields_for :destination do |d| %>
+                <div class="col-6">
+                  <%= d.label :address, "Destination" %>
+                </div>
+                <div class="col-6">
+                  <%= d.text_field :address, class: "form-control" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="row pb-2">
+              <div class="col-6">
+                <%= h.label :lifts %>
+              </div>
+              <div class="col-6">
+                <%= h.number_field :lifts, class: "form-control" %>
+              </div>
+            </div>
+            <div class="row pb-2  ">
+              <div class="col-3 col-sm-6">
+                <%= h.label "Time", for: "simple_post_hh_attribute_attributes_hours" %>
+              </div>
+              <div class="col-sm-2 col-3">
+                <%= h.text_field :days, class: "form-control", placeholder: "Days" %>
+              </div>
+              <div class="col-sm-2 col-3">
+                <%= h.text_field :hours, class: "form-control", placeholder: "Hours" %>
+              </div>
+              <div class="col-sm-2 col-3">
+                <%= h.text_field :minutes, class: "form-control", placeholder: "Minutes" %>
+              </div>
+            </div>
 
-        <%= form.fields_for :hh_attribute do |h| %>
-        <div class="row pb-2">
-          <%= h.fields_for :start do |s| %>
-          <div class="col-6">
-            <%= s.label :address,"Starting Point" %>
-          </div>
-          <div class="col-6">
-            <%= s.text_field :address, class: "form-control" %>
-          </div>
+            <%= submit_tag "Reset", type: :reset, class: "btn" %>
           <% end %>
-        </div>
-        <div class="row pb-2">
-          <%= h.fields_for :destination do |d| %>
-          <div class="col-6">
-            <%= d.label :address, "Destination" %>
-          </div>
-          <div class="col-6">
-            <%= d.text_field :address, class: "form-control" %>
-          </div>
-          <% end %>
-        </div>
-        <div class="row pb-2">
-          <div class="col-6">
-            <%= h.label :lifts %>
-          </div>
-          <div class="col-6">
-            <%= h.number_field :lifts, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row pb-2  ">
-          <div class="col-6">
-            <%= h.label "Time" %>
-          </div>
-          <div class="col-2">
-            <%= h.text_field :days, class: "form-control", placeholder: "Days" %>
-          </div>
-          <div class="col-2">
-            <%= h.text_field :hours, class: "form-control", placeholder: "Hours" %>
-          </div>
-          <div class="col-2">
-            <%= h.text_field :minutes, class: "form-control", placeholder: "Minutes" %>
-          </div>
-        </div>
 
-        <%= submit_tag "Reset", type: :reset, class: "btn" %>
-      <% end %>
-
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>

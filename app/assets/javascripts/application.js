@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// Javascript für Uploader
 document.getElementById("simple_post_pictures").onchange = upload_picture() {
     document.getElementById("uploadFile").value = this.value;
 };

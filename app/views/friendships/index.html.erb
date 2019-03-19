@@ -1,7 +1,9 @@
+<%# this is the view for the friendship overview %>
 <div class="row panel justify-content-around ">
   <div class="col-12 col-sm-8">
     <h2 class="title text-center">
       Your Friends</h2>
+      <%# iterates through all friends and depicts them next to an unfriend button %>
     <% @friends.each do |user| %>
       <div class="row m-0 pt-2 hh-stats-form">
         <div class="col-3 col-sm-2 pb-2 px-2">

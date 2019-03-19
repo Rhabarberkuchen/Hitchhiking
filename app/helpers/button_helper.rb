@@ -1,5 +1,6 @@
 module ButtonHelper
 
+#checks if the shown profile is your own and if not, if it's a friend of yours and adjusts the button
   def friends_and_edit_button(current_user, friend)
     if friend.id == current_user.id;
       link_to svg('edit-2'), edit_user_path,  class: "btn float-right"
@@ -12,6 +13,7 @@ module ButtonHelper
     end
   end
 
+#checks if you are the user of the shown profile so you can edit or delete a post
   def simple_posts_edit_button(current_user, simple_post)
     if(current_user.id == @user.id)
       link_to svg('edit-2'), edit_user_simple_post_path(current_user, simple_post), class:"btn"
@@ -24,6 +26,7 @@ module ButtonHelper
     end
   end
 
+#checks if there is a previous or next post
   def next_post_button(user, simple_post)
     next_post = simple_post.next
     if(!next_post.nil?)

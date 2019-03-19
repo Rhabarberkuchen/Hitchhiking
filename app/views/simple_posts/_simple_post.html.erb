@@ -1,3 +1,4 @@
+<%# the view of simple post %>
 <div class="row m-0">
   <div class="col-12 pb-1">
     <span class="title">
@@ -9,9 +10,11 @@
   </div>
 </div>
 
+<%# in case the post has hh_attribute it is rendered %>
 <% if @simple_post.hh_attribute %>
   <%= render partial: "simple_posts/shared/hh_attribute", locals: {hh_attribute: @simple_post.hh_attribute} %>
 <% end %>
+<%# in case the post has pictures they is rendered %>
 <% if  @simple_post.pictures[0] %>
   <%= render partial: "simple_posts/shared/pictures", locals: {simple_post: @simple_post} %>
 <% end %>

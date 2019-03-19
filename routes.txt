@@ -1,0 +1,40 @@
+                     Prefix Verb   URI Pattern                                     Controller#Action
+                       root GET    /                                               users/sessions#new
+                            GET    /users/:id/edit(.:format)                       users/registrations#edit
+                            GET    /users/:id(.:format)                            users#show
+           users_add_friend POST   /users/add_friend(.:format)                     users#add_friend
+        users_remove_friend POST   /users/remove_friend(.:format)                  users#remove_friend
+   users_add_friend_request POST   /users/add_friend_request(.:format)             users#add_friend_request
+users_accept_friend_request POST   /users/accept_friend_request(.:format)          users#accept_friend_request
+  users_deny_friend_request POST   /users/deny_friend_request(.:format)            users#deny_friend_request
+                    sign_up GET    /sign_up(.:format)                              users/registrations#new
+                    sign_in GET    /sign_in(.:format)                              users/sessions#new
+           new_user_session GET    /users/sign_in(.:format)                        users/sessions#new
+               user_session POST   /users/sign_in(.:format)                        users/sessions#create
+       destroy_user_session DELETE /users/sign_out(.:format)                       users/sessions#destroy
+          new_user_password GET    /users/password/new(.:format)                   devise/passwords#new
+         edit_user_password GET    /users/password/edit(.:format)                  devise/passwords#edit
+              user_password PATCH  /users/password(.:format)                       devise/passwords#update
+                            PUT    /users/password(.:format)                       devise/passwords#update
+                            POST   /users/password(.:format)                       devise/passwords#create
+   cancel_user_registration GET    /users/cancel(.:format)                         users/registrations#cancel
+      new_user_registration GET    /users/sign_up(.:format)                        users/registrations#new
+     edit_user_registration GET    /users/edit(.:format)                           users/registrations#edit
+          user_registration PATCH  /users(.:format)                                users/registrations#update
+                            PUT    /users(.:format)                                users/registrations#update
+                            DELETE /users(.:format)                                users/registrations#destroy
+                            POST   /users(.:format)                                users/registrations#create
+                    aboutus GET    /aboutus(.:format)                              pages#aboutus
+                    privacy GET    /privacy(.:format)                              pages#privacy
+          user_simple_posts GET    /users/:user_id/simple_posts(.:format)          simple_posts#index
+                            POST   /users/:user_id/simple_posts(.:format)          simple_posts#create
+       new_user_simple_post GET    /users/:user_id/simple_posts/new(.:format)      simple_posts#new
+      edit_user_simple_post GET    /users/:user_id/simple_posts/:id/edit(.:format) simple_posts#edit
+           user_simple_post GET    /users/:user_id/simple_posts/:id(.:format)      simple_posts#show
+                            PATCH  /users/:user_id/simple_posts/:id(.:format)      simple_posts#update
+                            PUT    /users/:user_id/simple_posts/:id(.:format)      simple_posts#update
+                            DELETE /users/:user_id/simple_posts/:id(.:format)      simple_posts#destroy
+                  edit_user GET    /users/:id/edit(.:format)                       users#edit
+                       user PATCH  /users/:id(.:format)                            users#update
+                            PUT    /users/:id(.:format)                            users#update
+                friendships GET    /friendships(.:format)                          friendships#index

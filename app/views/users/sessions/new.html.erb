@@ -1,3 +1,4 @@
+<%# view for the creation of a new user %>
 <div class="panel col-sm-6 mx-auto">
 
   <h2 class="text-center title">Log in</h2>
@@ -6,7 +7,6 @@
   <% if alert %>
     <p class="error-explanation m-2 p-4"><%= alert %></p>
   <% end %>
-<!-- errors display -->
   <div class="row">
     <div class="col-12">
       <%= f.label :email %><br/>
@@ -49,3 +49,5 @@
 <% end -%>
 <div class="row mt-2">
   <%= render "users/shared/links" %>
+</div>
+  </div>

@@ -1,81 +1,83 @@
-<div class="row pt-2 m-0 hh-stats-form">
-  <div class="col-sm-12   ">
-    <div class="row ">
-      <div class="col-12 col-sm-6">
-        <div class="row">
-          <div class="col-4">
-            Start
-          </div>
-          <div class="col-8">
-            <%= hh_attribute.start.address %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            Destination
-          </div>
-          <div class="col-8">
-            <%= hh_attribute.destination.address %>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6">
-        <div class="row">
-          <div class="col-4">
-            Lifts
-          </div>
-          <div class="col-8">
-            <%= hh_attribute.lifts %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            Time
-          </div>
-          <div class="col-8">
-            <% if hh_attribute.days %>
-              <%= hh_attribute.days.to_s + "Days, "%>
-            <%end %>
-            <% if hh_attribute.hours %>
-              <%= hh_attribute.hours.to_s + " Hours, "%>
-            <%end %>
-            <% if hh_attribute.minutes %>
-              <%= hh_attribute.minutes.to_s + " Minutes"%>
-            <%end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="w-100 m-3" id="mapid"></div>
-    </div>
+<%# the view of hh_attribute when it is shown with the map%>
 
-    <% require 'rest-client'
+  <div class="row pt-2 m-0 hh-stats-form">
+    <div class="col-sm-12   ">
+      <div class="row ">
+        <div class="col-12 col-sm-6">
+          <div class="row">
+            <div class="col-4">
+              Start
+            </div>
+            <div class="col-8">
+              <%= hh_attribute.start.address %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              Destination
+            </div>
+            <div class="col-8">
+              <%= hh_attribute.destination.address %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="row">
+            <div class="col-4">
+              Lifts
+            </div>
+            <div class="col-8">
+              <%= hh_attribute.lifts %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              Time
+            </div>
+            <div class="col-8">
+              <% if hh_attribute.days %>
+                <%= hh_attribute.days.to_s + "Days, "%>
+              <%end %>
+              <% if hh_attribute.hours %>
+                <%= hh_attribute.hours.to_s + " Hours, "%>
+              <%end %>
+              <% if hh_attribute.minutes %>
+                <%= hh_attribute.minutes.to_s + " Minutes"%>
+              <%end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="w-100 m-3" id="mapid"></div>
+      </div>
+      <%# rest-client is for the HTTP request to openrouteservice; the arguments are: api-key, coordinates from locations (start and destination), profile is driving car, the answer shall be geojson and no instructions%>
+        <% require 'rest-client'
 
     headers = {
       :accept => 'application/json; charset=utf-8'
     }
      hh_attribute.route = RestClient.get "https://api.openrouteservice.org/directions?api_key=#{Rails.application.secrets.ors_key}&coordinates=#{hh_attribute.start.longitude},#{hh_attribute.start.latitude}|#{hh_attribute.destination.longitude},#{hh_attribute.destination.latitude}&profile=driving-car&format=geojson&units=km&instructions=false", headers
          %>
-
-      <script>
-        var mymap = L.map('mapid').setView([
-          <%= hh_attribute.start.latitude %>, <%= hh_attribute.destination.longitude %>
-        ], 7);
-        var startmarker = L.marker([<%=  hh_attribute.start.latitude %>, <%=  hh_attribute.start.longitude %>]).addTo(mymap);
-        var destinationmarker = L.marker([<%=  hh_attribute.destination.latitude %>, <%=  hh_attribute.destination.longitude %>]).addTo(mymap);
-        L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
-          id: 'mapbox.streets'
-        }).addTo(mymap);
-        var myStyle = {
-          "color": "#ff7800",
-          "weight": 5,
-          "opacity": 1
-        };
-        var mygeojson = <%== hh_attribute.route %>
-        L.geoJSON(mygeojson, {style: myStyle}).addTo(mymap);
-      </script>
-    </div>
-  </div>
+          <%# drawing of the leaflet map with javascript %>
+            <script>
+              <%# The view is set on the map %>
+                var mymap = L.map('mapid').setView([
+                <%= hh_attribute.start.latitude %>,
+                <%= hh_attribute.destination.longitude %>
+                ], 7);
+                <%# start and destination markers are set %>
+                  var startmarker = L.marker([<%= hh_attribute.start.latitude %>,
+                  <%= hh_attribute.start.longitude %>]).addTo(mymap); var destinationmarker = L.marker([<%= hh_attribute.destination.latitude %>,
+                  <%= hh_attribute.destination.longitude %>]).addTo(mymap);
+                  <%# tilelayer is set %>
+                    L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', { maxZoom: 18, attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.', id: 'mapbox.streets' }).addTo(mymap);
+                    <%# style of the line that draws the route %>
+                      var myStyle = { "color": "#ff7800", "weight": 5, "opacity": 1 };
+                      <%# the response from openrouteservice is drawn %>
+                        var mygeojson =
+                        <%== hh_attribute.route %>
+                        L.geoJSON(mygeojson, {style: myStyle}).addTo(mymap);
+                      </script>
+                    </div>
+                  </div>

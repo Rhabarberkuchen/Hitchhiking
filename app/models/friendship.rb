@@ -2,6 +2,7 @@ class Friendship < ActiveRecord::Base
   belongs_to :user
   belongs_to :friend, class_name: "User"
 
+# inverse is created so that friendship is associated with other users
   after_create :create_inverse, unless: :has_inverse?
   after_destroy :destroy_inverses, if: :has_inverse?
 

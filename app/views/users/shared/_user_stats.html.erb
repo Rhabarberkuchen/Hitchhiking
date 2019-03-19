@@ -1,3 +1,4 @@
+<%# the personal information of the user is shown in this view %>
 <div id="stats">
   <div class="row">
     <div id="nameStat" class="col-sm-8 col-8">
@@ -5,6 +6,7 @@
     </div>
     <div class="col-4" id= "fae-button">
 
+<%# renders the buttons according to relationship status  %>
     <%= friends_and_edit_button(current_user, @user) %>
     </div>
   </div>

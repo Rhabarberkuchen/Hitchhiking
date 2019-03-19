@@ -1,7 +1,11 @@
+
+//color of marked text
 ::selection {
   background: $main-nav-button-hover-color;
   /* text markieren farbe */
 }
+
+//style of panel that contains hitchhiking information
 .hh-stats-form {
   border-color: #fcd96f;
   border-style: solid;
@@ -9,10 +13,12 @@
   border-radius: 0.4rem;
   background-color: $accent-color-second;
 }
-.about-panel{
+//style of panel that contains personal information
+.about-panel {
   @extend .hh-stats-form;
   min-height: 200px;
 }
+
 body {
   padding-top: 60px;
   background-color: $bgcolor;
@@ -22,17 +28,10 @@ body {
 .footer {
   background-color: $post-slider-border-color;
 }
+
 .footer a {
   color: $accent-color-second;
 }
-
-.error-panel {
-  background-color: red;
-  border-color: darken(red, 1);
-  border-style: solid;
-  border-width: thick;
-}
-
 
 .panel {
   padding: 0.4rem;
@@ -50,7 +49,7 @@ body {
 .main-navigation {
   background-color: $main-color;
 }
-
+//main navigation differs according to screen size
 .main-navigation-sm {
   background-color: $main-color;
   border-color: $main-nav-button-hover-color;
@@ -59,6 +58,13 @@ body {
   border-radius: 0.3em;
 }
 
+.main-navigation-button:hover {
+  background-color: $main-nav-button-hover-color;
+  border-style: hidden;
+  border-radius: 0.25rem;
+}
+
+//button style
 .btn {
   background-color: $button-color;
   border-color: $button-border-color;
@@ -71,11 +77,6 @@ body {
   background-color: $button-color;
 }
 
-.main-navigation-button:hover {
-  background-color: $main-nav-button-hover-color;
-  border-style: hidden;
-  border-radius: 0.25rem;
-}
 
 a {
   color: $link-color;
@@ -89,14 +90,11 @@ h2.title {
   @extend .mt-2;
 }
 
-<<<<<<< .merge_file_a16416
-=======
-
->>>>>>> .merge_file_a14972
 .rounded-picture {
   border-radius: 0.4rem;
 }
 
+//style of panel that contains error information
 .error-explanation {
   border-color: $error-border-color;
   border-radius: 0.4em;
@@ -105,19 +103,7 @@ h2.title {
   background-color: $error-background-color;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-<<<<<<< .merge_file_a16416
-  // -webkit-appearance: none;
-  margin: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 3em;
-  opacity: 0.5;
-  /* shows Spin Buttons per default (Chrome >= 39) */
-}
-
+//standard upload button is erased and custom button is shown
 .fileUpload {
   position: relative;
   overflow: hidden;
@@ -134,13 +120,4 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
-=======
-    // -webkit-appearance: none;
-    margin: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 3em;
-    opacity: .5; /* shows Spin Buttons per default (Chrome >= 39) */
->>>>>>> .merge_file_a14972
 }

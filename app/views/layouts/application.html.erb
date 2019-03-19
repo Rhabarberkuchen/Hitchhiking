@@ -1,5 +1,6 @@
+<%# this is the layout everything is based on %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
 
     <title>Hitchhiking</title>
@@ -16,16 +17,19 @@
     <div class="container ">
       <div class="row ">
         <div class="col-12 pb-3">
+          <%# main navigation as a partial is rendered %>
           <%= render "shared/main_navigation" %>
         </div>
       </div>
-      <div class="row ">
+      <div class="row mb-5">
         <div class="col-12">
+          <%# content that is requested through URI is rendered %>
           <%= yield %>
         </div>
       </div>
     </div>
     <footer>
+      <%# footer as a partial is rendered %>
       <%= render "shared/footer" %>
     </footer>
   </body>

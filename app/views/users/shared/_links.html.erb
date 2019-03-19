@@ -1,3 +1,5 @@
+<%# here are general links that are reused often; is is checked which links need to be rendered %>
+
 <%- if controller_name != 'sessions' %>
   <div class="col-4 col-sm-6">
   <%= link_to "Log in", sign_in_path %>
@@ -12,7 +14,7 @@
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <div class="col-8 col-sm-6">
-    <%= link_to "Forgot your password?", new_password_path(resource_name), class: "float-right"%><br/>
+    <%= link_to "Forgot your password?", "#", class: "float-right"%><br/>
   </div>
 <% end -%>
 

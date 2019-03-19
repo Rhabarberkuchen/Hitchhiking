@@ -1,4 +1,7 @@
+<%# form of simple_post is described %>
+<%# url has to be specified because of nested routes %>
 <%= form_with model: @simple_post, url: [@user, @simple_post], local: true do |form| %>
+<%# in case an error occured e.g. while saving %>
 <% if simple_post.errors.any? %>
   <div class="row justify-content-around mb-3">
     <div class="col-11 col-sm-6 error-explanation">
@@ -40,7 +43,8 @@
     </div>
   </div>
 </div>
-
+<%# the partial for hitchhiking attributes is rendered that can be collapsed %>
+<%# form is commited because of nested attributes %>
 <%= render partial: "simple_posts/shared/hh_attribute_form", locals:{ form: form} %>
 
 <div class="row pb-2 pt-4 justify-content-center">

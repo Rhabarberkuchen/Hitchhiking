@@ -1,8 +1,9 @@
-<div class="row">
-  <div class="col-3">
-      <%= if @user.id == current_user.id; link_to "+ New Post", new_user_simple_post_path(current_user), class: "btn btn-info w-100", role: "button" end %>
+<%# if there is no post yet %>
+  <div class="row">
+    <div class="col-3">
+      <%= if @user.id == current_user.id; link_to svg('plus'), new_user_simple_post_path(current_user), class: "btn btn-info w-100", role: "button" end %>
+    </div>
+    <div class="col-9">
+      <h2 class="title text-center">No posts yet</h2>
+    </div>
   </div>
-  <div class="col-9">
-    <h2 class="title text-center">No posts yet</h2>
-  </div>
-</div>

@@ -1,6 +1,10 @@
+<%# the main navigation of the application %>
+
+<%# if there is a session ongoing the main navigation is shown %>
 <% if user_signed_in? %>
   <nav class="navbar main-navigation navbar-light fixed-top">
     <div class="container h-100">
+      <%# The Name of the application; in a small screen only the short form is shown %>
       <div class="d-none d-sm-block">
         <div class="navbar-header ">
           <h5>AutoStop</h5>
@@ -28,6 +32,7 @@
     </div>
   </nav>
 
+<%# otherwise only the application name can be seen %>
 <% else %>
   <div class="container">
     <div class="row">
